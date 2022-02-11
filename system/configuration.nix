@@ -109,6 +109,7 @@
     chromium
     pkgconfig
     clang_13
+    gcc
     git
     nixpkgs-fmt
     noto-fonts-cjk
