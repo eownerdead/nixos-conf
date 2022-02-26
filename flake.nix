@@ -14,12 +14,6 @@
     let
       system = "x86_64-linux";
 
-      nixpkgs.overlays = [
-        (self: super: {
-          unstable = pkgs-unstable;
-        })
-      ];
-
       pkgs = import nixpkgs {
         inherit system;
       };
@@ -27,6 +21,13 @@
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
       };
+
+      overlays = [
+        (self: super: {
+          unstable = pkgs-unstable;
+          my = import ./pkgs { inherit pkgs; };
+        })
+      ];
 
       lib = nixpkgs.lib;
     in
@@ -40,6 +41,9 @@
           configuration = {
             imports = [
               ./users/noobuser/home.nix
+              {
+                nixpkgs.overlays = overlays;
+              }
             ];
           };
         };
@@ -51,7 +55,9 @@
 
           modules = [
             ./system/configuration.nix
-            { }
+            {
+              nixpkgs.overlays = overlays;
+            }
           ];
         };
       };
