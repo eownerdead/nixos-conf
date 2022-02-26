@@ -27,7 +27,7 @@
     cargo-asm
     cargo-edit
     cargo-sort
-    #unstable.cargo-generate # need --path option
+    # unstable.cargo-generate # need --path option
     rustc
     rustfmt
     clippy
@@ -38,8 +38,10 @@
     nemiver
     gnome.gnome-todo
     python39Packages.jedi-language-server
-    #unstable.icon-library
+    unstable.icon-library
     gnome.networkmanager-l2tp
+    gitg
+    my.gittyup
   ];
 
   # Let Home Manager install and manage itself.
