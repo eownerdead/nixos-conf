@@ -114,6 +114,7 @@
     nixpkgs-fmt
     noto-fonts-cjk
     gnome-usage
+    my.adw-gtk3
   ];
 
   i18n.inputMethod = {
