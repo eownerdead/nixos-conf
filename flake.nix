@@ -2,15 +2,13 @@
   description = "My System Config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-21.11";
+    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
 
-    nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
-
-    home-manager.url = "github:nix-community/home-manager/release-21.11";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
 
@@ -18,13 +16,8 @@
         inherit system;
       };
 
-      pkgs-unstable = import nixpkgs-unstable {
-        inherit system;
-      };
-
       overlays = [
         (self: super: {
-          unstable = pkgs-unstable;
           my = import ./pkgs { inherit pkgs; };
         })
       ];

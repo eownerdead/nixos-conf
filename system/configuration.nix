@@ -108,11 +108,12 @@
     drawing
     chromium
     pkgconfig
-    clang_13
+    clang
     gcc
     git
     nixpkgs-fmt
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
     gnome-usage
     my.adw-gtk3
   ];
