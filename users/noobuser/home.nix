@@ -27,7 +27,7 @@
     cargo-asm
     cargo-edit
     cargo-sort
-    # unstable.cargo-generate # need --path option
+    cargo-generate
     rustc
     rustfmt
     clippy
@@ -37,8 +37,8 @@
     tutanota-desktop
     nemiver
     gnome.gnome-todo
-    python39Packages.jedi-language-server
-    unstable.icon-library
+    python3Packages.jedi-language-server
+    icon-library
     gnome.networkmanager-l2tp
     gitg
     my.gittyup
