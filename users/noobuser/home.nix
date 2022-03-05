@@ -42,6 +42,7 @@
     gnome.networkmanager-l2tp
     gitg
     my.gittyup
+    my.blueprint-compiler
   ];
 
   # Let Home Manager install and manage itself.
