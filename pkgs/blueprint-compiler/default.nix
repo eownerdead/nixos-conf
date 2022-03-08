@@ -18,4 +18,6 @@ python3.pkgs.buildPythonApplication {
   ];
 
   buildInputs = [ ];
+
+  setupHook = ./setup-hook.sh;
 }
