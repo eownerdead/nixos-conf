@@ -18,7 +18,6 @@
     android-tools
     jetbrains-mono
     wireshark
-    vscodium
     inkscape
     rnix-lsp
     sourcetrail
@@ -32,16 +31,13 @@
     clippy
     rust-analyzer
     crate2nix
-    firefox-wayland
     thunderbird-wayland
     drawing
-    chromium
     pkgconfig
     # error: collision between `/nix/store/xxx-gcc-wrapper-10.3.0/bin/ld' and
     # `/nix/store/xxx-clang-wrapper-11.1.0/bin/ld'
     # clang
     gcc
-    git
     nixpkgs-fmt
     gnome-usage
     my.adw-gtk3
@@ -91,10 +87,75 @@
 
     "org/gnome/desktop/interface" = {
       clock-show-weekday = true;
-      gtk-theme = "adw-gtk3";
     };
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  gtk = {
+    font.name = "Noto Sans CJK JP";
+    theme.name = "adw-gtk3";
+  };
+
+  programs = {
+    bash = {
+      enable = true;
+      initExtra = "exec nu";
+    };
+    bat.enable = true;
+    chromium = {
+      enable = true;
+      extensions = [
+        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+      ];
+    };
+    exa = {
+      enable = true;
+      enableAliases = true;
+    };
+    firefox = {
+      enable = true;
+      package = pkgs.firefox-wayland;
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        ublock-origin
+        localcdn
+        violentmonkey
+      ];
+    };
+    git = {
+      enable = true;
+      delta.enable = true;
+      userEmail = "you@example.com";
+      userName = "Your Name";
+    };
+    nushell = {
+      enable = true;
+    };
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      extensions = with pkgs.vscode-extensions; [
+        usernamehw.errorlens
+        mhutchie.git-graph
+        tamasfe.even-better-toml
+        codezombiech.gitignore
+        eamodio.gitlens
+        oderwat.indent-rainbow
+        pkief.material-icon-theme
+        pkief.material-product-icons
+        ibm.output-colorizer
+        timonwong.shellcheck
+        mads-hartmann.bash-ide-vscode
+        editorconfig.editorconfig
+        jnoortheen.nix-ide
+        arrterian.nix-env-selector
+        redhat.vscode-yaml
+        jock.svg
+        llvm-vs-code-extensions.vscode-clangd
+        matklad.rust-analyzer
+        serayuzgur.crates
+        ms-python.python
+      ];
+      userSettings = import ./vscode-settings.nix;
+    };
+    home-manager.enable = true;
+  };
 }

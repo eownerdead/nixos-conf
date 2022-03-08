@@ -20,6 +20,7 @@
       overlays = [
         nur.overlay
         (self: super: { my = import ./pkgs { inherit pkgs; }; })
+  
       ];
 
       lib = nixpkgs.lib;
