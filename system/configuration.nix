@@ -60,21 +60,6 @@
   services.gnome.core-developer-tools.enable = true;
   environment.gnome.excludePackages = [ pkgs.gnome-builder ];
 
-  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
-    [org.gnome.desktop.input-sources]
-    sources = ['ibus']
-
-    [org.gnome.shell]
-    enabled-extensions = ['dash-to-dock@micxgx.gmail.com']
-
-    [org.gnome.shell.extensions.dash-to-dock]
-    dock-position = 'LEFT'
-    intellihide = false
-
-    [org.gnome.desktop.wm.preferences]
-    button-layout = ':minimize,maximize,close'
-  '';
-
   # Configure keymap in X11
   # services.xserver.layout = "jp106";
   # services.xserver.xkbOptions = "eurosign:e";
@@ -101,6 +86,7 @@
     # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     home-manager
+    chrome-gnome-shell
     ntfs3g
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
