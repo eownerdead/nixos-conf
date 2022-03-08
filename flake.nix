@@ -3,12 +3,13 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
+    nur.url = github:nix-community/NUR;
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, nur, home-manager, ... }:
     let
       system = "x86_64-linux";
 
@@ -17,9 +18,8 @@
       };
 
       overlays = [
-        (self: super: {
-          my = import ./pkgs { inherit pkgs; };
-        })
+        nur.overlay
+        (self: super: { my = import ./pkgs { inherit pkgs; }; })
       ];
 
       lib = nixpkgs.lib;
