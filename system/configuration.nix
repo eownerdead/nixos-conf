@@ -102,20 +102,8 @@
     wget
     home-manager
     ntfs3g
-    gnomeExtensions.dash-to-dock
-    firefox-wayland
-    thunderbird-wayland
-    drawing
-    chromium
-    pkgconfig
-    clang
-    gcc
-    git
-    nixpkgs-fmt
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
-    gnome-usage
-    my.adw-gtk3
   ];
 
   i18n.inputMethod = {

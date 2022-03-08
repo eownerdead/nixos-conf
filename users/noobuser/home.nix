@@ -33,6 +33,18 @@
     clippy
     rust-analyzer
     crate2nix
+    gnomeExtensions.dash-to-dock
+    firefox-wayland
+    thunderbird-wayland
+    drawing
+    chromium
+    pkgconfig
+    clang
+    gcc
+    git
+    nixpkgs-fmt
+    gnome-usage
+    my.adw-gtk3
 
     tutanota-desktop
     nemiver
