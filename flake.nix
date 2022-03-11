@@ -5,7 +5,7 @@
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     nur.url = github:nix-community/NUR;
 
-    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -20,7 +20,7 @@
       overlays = [
         nur.overlay
         (self: super: { my = import ./pkgs { inherit pkgs; }; })
-  
+
       ];
 
       lib = nixpkgs.lib;

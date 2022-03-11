@@ -5,7 +5,7 @@
   "editor.linkedEditing" = true;
   "editor.renderControlCharacters" = true;
   "editor.renderWhitespace" = "boundary";
-  "editor.rulers" = [80];
+  "editor.rulers" = [ 80 ];
   "editor.smoothScrolling" = true;
   "editor.stickyTabStops" = true;
   "editor.tabCompletion" = "on";
