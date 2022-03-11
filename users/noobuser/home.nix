@@ -1,61 +1,52 @@
 { config, lib, pkgs, ... }: {
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "noobuser";
-  home.homeDirectory = "/home/noobuser";
+  home = {
+    username = "noobuser";
+    homeDirectory = "/home/noobuser";
+    # stateVersion = "21.11";
 
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  # home.stateVersion = "21.11";
+    packages = with pkgs; [
+      android-tools
+      jetbrains-mono
+      wireshark
+      inkscape
+      rnix-lsp
+      sourcetrail
+      cargo
+      cargo-asm
+      cargo-edit
+      cargo-sort
+      cargo-generate
+      rustc
+      rustfmt
+      clippy
+      rust-analyzer
+      crate2nix
+      thunderbird-wayland
+      drawing
+      pkgconfig
+      # error: collision between `/nix/store/xxx-gcc-wrapper-10.3.0/bin/ld' and
+      # `/nix/store/xxx-clang-wrapper-11.1.0/bin/ld'
+      # clang
+      gcc
+      nixpkgs-fmt
+      gnome-usage
+      my.adw-gtk3
 
-  home.packages = with pkgs; [
-    android-tools
-    jetbrains-mono
-    wireshark
-    inkscape
-    rnix-lsp
-    sourcetrail
-    cargo
-    cargo-asm
-    cargo-edit
-    cargo-sort
-    cargo-generate
-    rustc
-    rustfmt
-    clippy
-    rust-analyzer
-    crate2nix
-    thunderbird-wayland
-    drawing
-    pkgconfig
-    # error: collision between `/nix/store/xxx-gcc-wrapper-10.3.0/bin/ld' and
-    # `/nix/store/xxx-clang-wrapper-11.1.0/bin/ld'
-    # clang
-    gcc
-    nixpkgs-fmt
-    gnome-usage
-    my.adw-gtk3
-
-    tutanota-desktop
-    nemiver
-    gnome.gnome-todo
-    python3Packages.jedi-language-server
-    icon-library
-    gnome.networkmanager-l2tp
-    gitg
-    my.gittyup
-    my.blueprint-compiler
-  ] ++ (with pkgs.gnomeExtensions; [
-    dash-to-dock
-    fuzzy-app-search
-    alphabetical-app-grid
-  ]);
+      tutanota-desktop
+      nemiver
+      gnome.gnome-todo
+      python3Packages.jedi-language-server
+      icon-library
+      gnome.networkmanager-l2tp
+      gitg
+      my.gittyup
+      my.blueprint-compiler
+    ] ++ (with pkgs.gnomeExtensions; [
+      dash-to-dock
+      fuzzy-app-search
+      alphabetical-app-grid
+    ]);
+  };
 
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
