@@ -89,7 +89,7 @@
   programs = {
     bash = {
       enable = true;
-      initExtra = "exec nu";
+      initExtra = ''[ -v $USE_BASH ] && exec nu'';
     };
     bat.enable = true;
     chromium = {
@@ -119,6 +119,9 @@
     };
     nushell = {
       enable = true;
+      settings = {
+        startup = [ "alias bash = { USE_BASH=1 ^bash }" ];
+      };
     };
     vscode = {
       enable = true;
