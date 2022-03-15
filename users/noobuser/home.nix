@@ -41,6 +41,7 @@
       gitg
       my.gittyup
       my.blueprint-compiler
+      my.system-monitoring-center
     ] ++ (with pkgs.gnomeExtensions; [
       dash-to-dock
       fuzzy-app-search
