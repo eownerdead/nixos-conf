@@ -46,6 +46,7 @@
       dash-to-dock
       fuzzy-app-search
       alphabetical-app-grid
+      tiling-assistant
     ]);
   };
 
@@ -62,6 +63,7 @@
         "dash-to-dock@micxgx.gmail.com"
         "gnome-fuzzy-app-search@gnome-shell-extensions.Czarlie.gitlab.com"
         "AlphabeticalAppGrid@stuarthayhurst"
+        "tiling-assistant@leleat-on-github"
       ];
     };
 
