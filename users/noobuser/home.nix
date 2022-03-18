@@ -39,6 +39,7 @@
       icon-library
       gnome.networkmanager-l2tp
       gitg
+      gnome-text-editor
       my.gittyup
       my.blueprint-compiler
       my.system-monitoring-center
