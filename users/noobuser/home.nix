@@ -40,6 +40,7 @@
       gnome.networkmanager-l2tp
       gitg
       gnome-text-editor
+      fortune
       my.gittyup
       my.blueprint-compiler
       my.system-monitoring-center
@@ -93,7 +94,12 @@
   programs = {
     bash = {
       enable = true;
-      initExtra = ''[ -v $USE_BASH ] && exec nu'';
+      initExtra = ''
+        fortune
+        echo
+
+        [ -v $USE_BASH ] && exec nu
+      '';
     };
     bat.enable = true;
     chromium = {
