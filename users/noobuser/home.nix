@@ -40,6 +40,7 @@
       gnome.networkmanager-l2tp
       gitg
       gnome-text-editor
+      gtranslator
       fortune
       my.gittyup
       my.blueprint-compiler
