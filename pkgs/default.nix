@@ -5,4 +5,5 @@ with pkgs; {
   blueprint-compiler = (callPackage ./blueprint-compiler/default.nix { });
   system-monitoring-center =
     (callPackage ./system-monitoring-center/default.nix { });
+  app-icon-preview = (callPackage ./app-icon-preview/default.nix { });
 }
