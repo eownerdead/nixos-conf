@@ -42,6 +42,7 @@
       gnome-text-editor
       gtranslator
       fortune
+      file
       my.gittyup
       my.blueprint-compiler
       my.system-monitoring-center
