@@ -45,6 +45,7 @@
       my.gittyup
       my.blueprint-compiler
       my.system-monitoring-center
+      my.app-icon-preview
     ] ++ (with pkgs.gnomeExtensions; [
       dash-to-dock
       fuzzy-app-search
