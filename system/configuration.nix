@@ -95,5 +95,12 @@
     };
   };
 
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
+  };
+
   system.stateVersion = "21.11";
 }
