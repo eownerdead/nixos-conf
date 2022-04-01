@@ -2,39 +2,37 @@
   description = "My System Config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixpkgs-unstable";
+    unstable.url = "nixpkgs/nixos-unstable";
     nur.url = github:nix-community/NUR;
-
-    home-manager.url = "github:nix-community/home-manager/release-21.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    utils.url = github:gytis-ivaskevicius/flake-utils-plus;
+    home-manager = {
+      url = "github:nix-community/home-manager/release-21.11";
+      inputs.nixpkgs.follows = "unstable";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, nur, home-manager, ... }:
-    let
-      system = "x86_64-linux";
+  outputs = inputs@{ self, unstable, nur, utils, home-manager, ... }:
+    utils.lib.mkFlake {
+      inherit self inputs;
 
-      pkgs = import nixpkgs {
-        inherit system;
+      supportedSystems = [ "x86_64-linux" ];
+
+      sharedOverlays = [ nur.overlay ];
+
+      channels = {
+        unstable = {
+          overlaysBuilder = channels: [
+            (self: super: { my = import ./pkgs { pkgs = channels.unstable; }; })
+          ];
+        };
       };
 
-      overlays = [
-        nur.overlay
-        (self: super: { my = import ./pkgs { inherit pkgs; }; })
-
-      ];
-
-      lib = nixpkgs.lib;
-    in
-    {
-      nixosConfigurations = {
-        nixos = lib.nixosSystem {
-          inherit system;
-
+      hosts = {
+        nixos = {
+          system = "x86_64-linux";
+          channelName = "unstable";
           modules = [
             ./system/configuration.nix
-            {
-              nixpkgs.overlays = overlays;
-            }
             home-manager.nixosModules.home-manager
             {
               home-manager = {
