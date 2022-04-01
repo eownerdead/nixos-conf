@@ -2,7 +2,7 @@
   home = {
     username = "noobuser";
     homeDirectory = "/home/noobuser";
-    # stateVersion = "21.11";
+    stateVersion = "21.11";
 
     packages = with pkgs; [
       android-tools
@@ -105,12 +105,6 @@
       '';
     };
     bat.enable = true;
-    chromium = {
-      enable = true;
-      extensions = [
-        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
-      ];
-    };
     exa = {
       enable = true;
       enableAliases = true;

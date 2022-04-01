@@ -26,23 +26,6 @@
       lib = nixpkgs.lib;
     in
     {
-      home-manager.useGlobalPkgs = true;
-      homeManagerConfigurations = {
-        noobuser = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "noobuser";
-          homeDirectory = "/home/noobuser";
-          configuration = {
-            imports = [
-              ./users/noobuser/home.nix
-              {
-                nixpkgs.overlays = overlays;
-              }
-            ];
-          };
-        };
-      };
-
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
@@ -51,6 +34,16 @@
             ./system/configuration.nix
             {
               nixpkgs.overlays = overlays;
+            }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users = {
+                  noobuser = import ./users/noobuser/home.nix;
+                };
+              };
             }
           ];
         };
