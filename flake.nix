@@ -2,6 +2,7 @@
   description = "My System Config";
 
   inputs = {
+    nixpkgs.url = "nixpkgs/nixos-21.11";
     unstable.url = "nixpkgs/nixos-unstable";
     nur.url = github:nix-community/NUR;
     utils.url = github:gytis-ivaskevicius/flake-utils-plus;
@@ -11,7 +12,7 @@
     };
   };
 
-  outputs = inputs@{ self, unstable, nur, utils, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, unstable, nur, utils, home-manager, ... }:
     utils.lib.mkFlake {
       inherit self inputs;
 
@@ -20,6 +21,11 @@
       sharedOverlays = [ nur.overlay ];
 
       channels = {
+        nixpkgs = {
+          overlaysBuilder = channels: [
+            (self: super: { my = import ./pkgs { pkgs = channels.nixpkgs; }; })
+          ];
+        };
         unstable = {
           overlaysBuilder = channels: [
             (self: super: { my = import ./pkgs { pkgs = channels.unstable; }; })
@@ -32,7 +38,7 @@
           system = "x86_64-linux";
           channelName = "unstable";
           modules = [
-            ./system/configuration.nix
+            ./hosts/nixos/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -43,6 +49,14 @@
                 };
               };
             }
+          ];
+        };
+
+        home-server = {
+          system = "x86_64-linux";
+          channelName = "nixpkgs";
+          modules = [
+            ./hosts/home-server/configuration.nix
           ];
         };
       };
