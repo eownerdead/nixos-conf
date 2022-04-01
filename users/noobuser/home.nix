@@ -37,9 +37,7 @@
       gnome.gnome-todo
       python3Packages.jedi-language-server
       icon-library
-      gnome.networkmanager-l2tp
       gitg
-      gnome-text-editor
       gtranslator
       fortune
       file
@@ -62,8 +60,8 @@
         (lib.hm.gvariant.mkTuple [ "xkb" "jp" ])
       ];
     };
-
     "org/gnome/shell" = {
+      disable-extension-version-validation = true;
       enabled-extensions = [
         "dash-to-dock@micxgx.gmail.com"
         "gnome-fuzzy-app-search@gnome-shell-extensions.Czarlie.gitlab.com"
@@ -71,7 +69,6 @@
         "tiling-assistant@leleat-on-github"
       ];
     };
-
     # Ubuntu-like dock
     "org/gnome/shell/extensions/dash-to-dock" = {
       dock-position = "LEFT";
@@ -79,11 +76,9 @@
       custom-theme-shrink = true;
       extend-height = true;
     };
-
     "org/gnome/desktop/wm/preferences" = {
       button-layout = ":minimize,maximize,close";
     };
-
     "org/gnome/desktop/interface" = {
       clock-show-weekday = true;
     };
