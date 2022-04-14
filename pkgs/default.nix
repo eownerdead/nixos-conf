@@ -6,4 +6,5 @@ with pkgs; {
   system-monitoring-center =
     (callPackage ./system-monitoring-center/default.nix { });
   app-icon-preview = (callPackage ./app-icon-preview/default.nix { });
+  dialect = (callPackage ./dialect/default.nix { });
 }
