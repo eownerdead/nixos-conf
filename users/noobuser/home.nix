@@ -10,7 +10,7 @@
       wireshark
       inkscape
       rnix-lsp
-      # sourcetrail # build failed
+      sourcetrail
       cargo
       cargo-asm
       cargo-edit
@@ -41,7 +41,6 @@
       gtranslator
       fortune
       file
-      nix-index
       my.gittyup
       my.blueprint-compiler
       my.system-monitoring-center
