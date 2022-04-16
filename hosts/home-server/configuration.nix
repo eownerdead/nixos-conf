@@ -51,12 +51,21 @@
       permitRootLogin = "no";
     };
 
+    avahi = {
+      enable = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        workstation = true;
+      };
+    };
+
     # https://discourse.nixos.org/t/minimal-working-nextcloud-config/9316
     nextcloud = {
       enable = true;
-      hostName = "10.50.0.2";
+      hostName = "home-server.local";
       config = {
-        extraTrustedDomains = [ "192.168.*" ];
+        extraTrustedDomains = [ "*" ];
         dbpassFile = "/etc/nextcloud_dbpass.txt";
         adminpassFile = "/etc/nextcloud_adminpass.txt";
       };
