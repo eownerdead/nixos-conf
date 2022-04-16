@@ -7,7 +7,7 @@
     nur.url = github:nix-community/NUR;
     utils.url = github:gytis-ivaskevicius/flake-utils-plus;
     home-manager = {
-      url = "github:nix-community/home-manager/release-21.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "unstable";
     };
   };
