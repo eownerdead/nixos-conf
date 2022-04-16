@@ -10,7 +10,7 @@
       wireshark
       inkscape
       rnix-lsp
-      sourcetrail
+      # sourcetrail # build failed
       cargo
       cargo-asm
       cargo-edit
