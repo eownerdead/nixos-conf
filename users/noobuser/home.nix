@@ -41,6 +41,7 @@
       gtranslator
       fortune
       file
+      nix-index
       my.gittyup
       my.blueprint-compiler
       my.system-monitoring-center
