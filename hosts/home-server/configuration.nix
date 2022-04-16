@@ -23,7 +23,17 @@
   networking = {
     hostName = "home-server";
     useDHCP = false;
-    interfaces.enp2s0.useDHCP = true;
+    nameservers = [ "192.168.3.1" ];
+    defaultGateway = "192.168.3.1";
+    interfaces = {
+      "enp2s0".ipv4.addresses = [
+        {
+          address = "192.168.3.100";
+          prefixLength = 24;
+        }
+      ];
+    };
+    firewall.enable = false;
     firewall.allowedTCPPorts = [ 80 ]; # nextcloud
   };
 
