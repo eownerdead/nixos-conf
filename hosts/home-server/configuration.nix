@@ -70,14 +70,26 @@
       };
     };
 
+    nginx = {
+      enable = true;
+      virtualHosts."home-server.local".locations = {
+        "/nextcloud/" = {
+          proxyPass = "http://127.0.0.1:80/";
+        };
+      };
+    };
+
     # https://discourse.nixos.org/t/minimal-working-nextcloud-config/9316
     nextcloud = {
       enable = true;
-      hostName = "home-server.local";
+      hostName = "127.0.0.1";
       config = {
         extraTrustedDomains = [ "*" ];
         dbtype = "mysql";
-        dbport = 3306;
+        # TODO
+        dbport = ''3306',
+          'overwritehost' => 'home-server.local',
+          'overwritewebroot' => '/nextcloud'';
         dbpassFile = "/etc/nextcloud_dbpass.txt";
         adminpassFile = "/etc/nextcloud_adminpass.txt";
       };
