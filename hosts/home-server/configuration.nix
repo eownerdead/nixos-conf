@@ -76,9 +76,27 @@
       hostName = "home-server.local";
       config = {
         extraTrustedDomains = [ "*" ];
+        dbtype = "mysql";
+        dbport = 3306;
         dbpassFile = "/etc/nextcloud_dbpass.txt";
         adminpassFile = "/etc/nextcloud_adminpass.txt";
       };
+    };
+
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+      ensureDatabases = [
+        "nextcloud"
+      ];
+      ensureUsers = [
+        {
+          name = "nextcloud";
+          ensurePermissions = {
+            "nextcloud.*" = "ALL PRIVILEGES";
+          };
+        }
+      ];
     };
   };
 
