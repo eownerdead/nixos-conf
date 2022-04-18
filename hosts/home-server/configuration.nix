@@ -76,6 +76,12 @@
         "/nextcloud/" = {
           proxyPass = "http://127.0.0.1:80/";
         };
+        "/yacy/" = {
+          proxyPass = "http://127.0.0.1:8090/";
+          extraConfig = ''
+            proxy_redirect default;
+          '';
+        };
       };
     };
 
