@@ -33,7 +33,6 @@
         }
       ];
     };
-    firewall.enable = false;
     firewall.allowedTCPPorts = [ 80 ]; # nextcloud
   };
 
