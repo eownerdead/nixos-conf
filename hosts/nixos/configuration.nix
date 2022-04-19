@@ -61,6 +61,7 @@
       core-developer-tools.enable = true;
     };
     printing.enable = true;
+    avahi.nssmdns = true;
   };
 
   # Configure keymap in X11
