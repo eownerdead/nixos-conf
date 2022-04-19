@@ -114,6 +114,9 @@
         violentmonkey
       ];
     };
+    chromium = {
+      enable = true;
+    };
     git = {
       enable = true;
       delta.enable = true;
