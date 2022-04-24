@@ -34,7 +34,6 @@
 
       tutanota-desktop
       nemiver
-      gnome.gnome-todo
       python3Packages.jedi-language-server
       icon-library
       gitg
@@ -46,7 +45,10 @@
       my.system-monitoring-center
       my.app-icon-preview
       my.dialect
-    ] ++ (with pkgs.gnomeExtensions; [
+    ] ++(with pkgs.gnome; [
+      gnome-todo
+      ghex
+    ]) ++ (with pkgs.gnomeExtensions; [
       dash-to-dock
       fuzzy-app-search
       alphabetical-app-grid
