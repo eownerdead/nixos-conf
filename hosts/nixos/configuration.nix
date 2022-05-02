@@ -92,7 +92,7 @@
     defaultLocale = "ja_JP.UTF-8";
     inputMethod = {
       enabled = "ibus";
-      ibus.engines = with pkgs.ibus-engines; [ mozc ];
+      ibus.engines = [ pkgs.my.ibus-mozc-ut ];
     };
   };
 
