@@ -40,6 +40,7 @@
       gtranslator
       fortune
       file
+      cheat
       my.gittyup
       my.blueprint-compiler
       my.system-monitoring-center
