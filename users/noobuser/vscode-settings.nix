@@ -17,7 +17,7 @@
   "editor.cursorSmoothCaretAnimation" = true;
   "editor.cursorSurroundingLines" = 5;
 
-  "editor.fontFamily" = "'Jetbrains mono NL',  'Noto Sans CJK JP'";
+  "editor.fontFamily" = "'JetBrainsMono Nerd Font Mono',  'Noto Sans CJK JP'";
   "editor.fontSize" = 18;
 
   "editor.formatOnPaste" = true;
