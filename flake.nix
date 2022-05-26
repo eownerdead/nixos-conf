@@ -18,6 +18,7 @@
 
       supportedSystems = [ "x86_64-linux" ];
 
+
       sharedOverlays = [ nur.overlay ];
 
       channels = {
@@ -48,6 +49,13 @@
                   noobuser = import ./users/noobuser/home.nix;
                 };
               };
+            }
+            {
+              nixpkgs.config.allowUnfreePredicate = pkg:
+                builtins.elem (nixpkgs.lib.getName pkg) [
+                  "nvidia-x11"
+                  "nvidia-settings"
+                ];
             }
           ];
         };

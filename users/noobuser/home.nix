@@ -6,7 +6,6 @@
 
     packages = with pkgs; [
       android-tools
-      jetbrains-mono
       wireshark
       inkscape
       rnix-lsp
@@ -42,12 +41,13 @@
       file
       cheat
       comma
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       my.gittyup
       my.blueprint-compiler
       my.system-monitoring-center
       my.app-icon-preview
       my.dialect
-    ] ++(with pkgs.gnome; [
+    ] ++ (with pkgs.gnome; [
       gnome-todo
       ghex
     ]) ++ (with pkgs.gnomeExtensions; [
