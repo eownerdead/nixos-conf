@@ -1,3 +1,6 @@
+let
+  fontSize = 16;
+in
 {
   "editor.bracketPairColorization.enabled" = true;
   "editor.guides.bracketPairs" = true;
@@ -18,7 +21,7 @@
   "editor.cursorSurroundingLines" = 5;
 
   "editor.fontFamily" = "'JetBrainsMono Nerd Font Mono',  'Noto Sans CJK JP'";
-  "editor.fontSize" = 18;
+  "editor.fontSize" = fontSize;
 
   "editor.formatOnPaste" = true;
   "editor.formatOnType" = true;
@@ -78,13 +81,13 @@
   "explorer.confirmDelete" = false;
   "explorer.copyRelativePathSeparator" = "/";
 
-  "debug.console.fontSize" = 20;
+  "debug.console.fontSize" = fontSize;
   "debug.showBreakpointsInOverviewRuler" = true;
   "debug.toolBarLocation" = "docked";
 
   "terminal.integrated.cursorBlinking" = true;
   "terminal.integrated.enableBell" = true;
-  "terminal.integrated.fontSize" = 20;
+  "terminal.integrated.fontSize" = fontSize;
 
   "problems.sortOrder" = "position";
 
