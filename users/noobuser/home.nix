@@ -41,6 +41,7 @@
       fortune
       file
       cheat
+      comma
       my.gittyup
       my.blueprint-compiler
       my.system-monitoring-center
@@ -107,6 +108,10 @@
     exa = {
       enable = true;
       enableAliases = true;
+    };
+    nix-index = {
+      enable = true;
+      enableBashIntegration = true;
     };
     firefox = {
       enable = true;
