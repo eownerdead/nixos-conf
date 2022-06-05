@@ -42,6 +42,7 @@
       cheat
       comma
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      mold
       my.gittyup
       my.blueprint-compiler
       my.system-monitoring-center
