@@ -43,8 +43,8 @@
       comma
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       mold
+      blueprint-compiler
       my.gittyup
-      my.blueprint-compiler
       my.system-monitoring-center
       my.app-icon-preview
       my.dialect
