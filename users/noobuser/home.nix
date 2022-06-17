@@ -48,6 +48,8 @@
       my.system-monitoring-center
       my.app-icon-preview
       my.dialect
+      my.morisawa-biz-ud-gothic
+      my.morisawa-biz-ud-mincho
     ] ++ (with pkgs.gnome; [
       gnome-todo
       ghex
