@@ -7,4 +7,6 @@ with pkgs; {
   app-icon-preview = (callPackage ./app-icon-preview/default.nix { });
   dialect = (callPackage ./dialect/default.nix { });
   ibus-mozc-ut = (callPackage ./ibus-mozc-ut/default.nix { });
+  morisawa-biz-ud-gothic = (callPackage ./morisawa-biz-ud-gothic { });
+  morisawa-biz-ud-mincho = (callPackage ./morisawa-biz-ud-mincho { });
 }
