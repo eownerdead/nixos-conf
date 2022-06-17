@@ -63,6 +63,7 @@
     };
     printing.enable = true;
     avahi.nssmdns = true;
+    flatpak.enable = true;
   };
 
   # Configure keymap in X11

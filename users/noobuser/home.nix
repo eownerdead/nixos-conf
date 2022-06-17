@@ -44,9 +44,7 @@
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       mold
       blueprint-compiler
-      my.gittyup
       my.system-monitoring-center
-      my.app-icon-preview
       my.dialect
       my.morisawa-biz-ud-gothic
       my.morisawa-biz-ud-mincho
