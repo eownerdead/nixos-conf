@@ -85,8 +85,6 @@
       home-manager
       chrome-gnome-shell
       ntfs3g
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
     ];
   };
 
@@ -97,6 +95,11 @@
       ibus.engines = [ pkgs.my.ibus-mozc-ut ];
     };
   };
+
+  fonts.fonts = with pkgs; [
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+  ];
 
   virtualisation = {
     podman = {
