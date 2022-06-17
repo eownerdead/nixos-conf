@@ -86,6 +86,10 @@
       chrome-gnome-shell
       ntfs3g
     ];
+    variables = {
+      # https://github.com/NixOS/nixpkgs/issues/32580
+      WEBKIT_DISABLE_COMPOSITING_MODE = "1";
+    };
   };
 
   i18n = {
