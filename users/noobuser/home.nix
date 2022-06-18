@@ -28,6 +28,7 @@
       # clang
       gcc
       nixpkgs-fmt
+      statix
       gnome-usage
       my.adw-gtk3
 
