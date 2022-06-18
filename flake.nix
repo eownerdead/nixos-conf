@@ -4,8 +4,8 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-21.11";
     unstable.url = "nixpkgs/nixos-unstable";
-    nur.url = github:nix-community/NUR;
-    utils.url = github:gytis-ivaskevicius/flake-utils-plus;
+    nur.url = "github:nix-community/NUR";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     home-manager = {
       url = "github:nix-community/home-manager/release-21.11";
       inputs.nixpkgs.follows = "unstable";
