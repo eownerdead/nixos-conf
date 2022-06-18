@@ -45,6 +45,8 @@
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       mold
       blueprint-compiler
+      cached-nix-shell
+      nix-output-monitor
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
