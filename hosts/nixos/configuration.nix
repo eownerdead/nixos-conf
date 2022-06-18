@@ -85,6 +85,7 @@
       home-manager
       chrome-gnome-shell
       ntfs3g
+      cachix
     ];
     variables = {
       # https://github.com/NixOS/nixpkgs/issues/32580
