@@ -2,7 +2,7 @@
   description = "My System Config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-21.11";
+    nixpkgs.url = "nixpkgs/nixos-22.05";
     unstable.url = "nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
