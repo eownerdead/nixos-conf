@@ -51,10 +51,14 @@
 
   services = {
     zfs = {
-      trim.enable = true;
+      trim = {
+        enable = true;
+        interval = "monthly";
+      };
       autoScrub = {
         enable = true;
         pools = [ "rpool" ];
+        interval = "weekly";
       };
     };
     xserver = {
