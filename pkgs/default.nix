@@ -7,4 +7,5 @@ with pkgs; {
   ibus-mozc-ut = callPackage ./ibus-mozc-ut/default.nix { };
   morisawa-biz-ud-gothic = callPackage ./morisawa-biz-ud-gothic { };
   morisawa-biz-ud-mincho = callPackage ./morisawa-biz-ud-mincho { };
+  translate-locally-bin = callPackage ./translate-locally-bin { };
 }
