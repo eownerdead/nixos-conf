@@ -47,6 +47,7 @@
       blueprint-compiler
       cached-nix-shell
       nix-output-monitor
+      tor-browser-bundle-bin
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
