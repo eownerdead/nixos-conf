@@ -48,6 +48,7 @@
       cached-nix-shell
       nix-output-monitor
       tor-browser-bundle-bin
+      hydra-check
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
