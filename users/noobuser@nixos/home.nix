@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
+  imports = [
+    ../noobuser/vscode.nix
+    ../noobuser/firefox.nix
+  ];
+
   home = {
     username = "noobuser";
     homeDirectory = "/home/noobuser";
@@ -122,16 +128,6 @@
       enable = true;
       enableBashIntegration = true;
     };
-    firefox = {
-      enable = true;
-      package = pkgs.firefox-wayland;
-      profiles.default = {};
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin
-        localcdn
-        violentmonkey
-      ];
-    };
     chromium = {
       enable = true;
     };
@@ -146,33 +142,6 @@
       settings = {
         startup = [ "alias bash = { USE_BASH=1 ^bash }" ];
       };
-    };
-    vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-      extensions = with pkgs.vscode-extensions; [
-        usernamehw.errorlens
-        mhutchie.git-graph
-        tamasfe.even-better-toml
-        codezombiech.gitignore
-        eamodio.gitlens
-        oderwat.indent-rainbow
-        pkief.material-icon-theme
-        pkief.material-product-icons
-        ibm.output-colorizer
-        timonwong.shellcheck
-        mads-hartmann.bash-ide-vscode
-        editorconfig.editorconfig
-        jnoortheen.nix-ide
-        arrterian.nix-env-selector
-        redhat.vscode-yaml
-        jock.svg
-        llvm-vs-code-extensions.vscode-clangd
-        matklad.rust-analyzer
-        serayuzgur.crates
-        ms-python.python
-      ];
-      userSettings = import ./vscode-settings.nix;
     };
     home-manager.enable = true;
   };
