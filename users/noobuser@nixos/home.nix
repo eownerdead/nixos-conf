@@ -3,6 +3,7 @@
   imports = [
     ../noobuser/vscode.nix
     ../noobuser/firefox.nix
+    ../noobuser/nushell.nix
   ];
 
   home = {
@@ -136,12 +137,6 @@
       delta.enable = true;
       userEmail = "you@example.com";
       userName = "Your Name";
-    };
-    nushell = {
-      enable = true;
-      settings = {
-        startup = [ "alias bash = { USE_BASH=1 ^bash }" ];
-      };
     };
     home-manager.enable = true;
   };
