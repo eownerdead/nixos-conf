@@ -46,7 +46,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users = {
-                  noobuser = import ./users/noobuser/home.nix;
+                  noobuser = import (./. + "/users/noobuser@nixos/home.nix");
                 };
               };
             }
