@@ -66,6 +66,11 @@
       videoDrivers = [ "nvidia" ];
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
+      extraLayouts.fast = {
+        description = "";
+        languages = [ "eng" "jpn" ];
+        symbolsFile = ./fastmap;
+      };
     };
     gnome = {
       chrome-gnome-shell.enable = true;
