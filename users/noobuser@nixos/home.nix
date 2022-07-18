@@ -57,6 +57,7 @@
       nix-output-monitor
       tor-browser-bundle-bin
       hydra-check
+      binutils
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
