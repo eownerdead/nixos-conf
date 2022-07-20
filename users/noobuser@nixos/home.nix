@@ -58,6 +58,7 @@
       tor-browser-bundle-bin
       hydra-check
       binutils
+      digikam
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
