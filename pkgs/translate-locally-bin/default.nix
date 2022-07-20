@@ -1,4 +1,4 @@
-{ lib, stdenv, dpkg, libsForQt5, fetchurl, libarchive,qt5 }:
+{ lib, stdenv, dpkg, libsForQt5, fetchurl, libarchive, qt5 }:
 stdenv.mkDerivation rec {
   name = "translate-locally-bin";
   version = "0.0.2+5e0f710";
@@ -28,17 +28,19 @@ stdenv.mkDerivation rec {
       $out/share/icons/hicolor/scalable/apps/
   '';
 
-  preFixup = let
-    libPath = lib.makeLibraryPath [
-      libarchive
-      qt5.qtbase
-      qt5.qtsvg
-      stdenv.cc.cc.lib
-    ];
-  in ''
-    patchelf \
-      --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
-      --set-rpath "${libPath}" \
-      $out/bin/translateLocally
-  '';
+  preFixup =
+    let
+      libPath = lib.makeLibraryPath [
+        libarchive
+        qt5.qtbase
+        qt5.qtsvg
+        stdenv.cc.cc.lib
+      ];
+    in
+    ''
+      patchelf \
+        --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+        --set-rpath "${libPath}" \
+        $out/bin/translateLocally
+    '';
 }
