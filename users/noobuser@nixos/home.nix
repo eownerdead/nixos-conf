@@ -1,6 +1,7 @@
 { lib, pkgs, ... }:
 {
   imports = [
+    ../noobuser/nix-tools.nix
     ../noobuser/vscode.nix
     ../noobuser/firefox.nix
     ../noobuser/nushell.nix
@@ -16,7 +17,6 @@
       android-tools
       wireshark
       inkscape
-      rnix-lsp
       # sourcetrail
       cargo
       cargo-asm
@@ -35,8 +35,6 @@
       # `/nix/store/xxx-clang-wrapper-11.1.0/bin/ld'
       # clang
       gcc
-      nixpkgs-fmt
-      statix
       gnome-usage
       my.adw-gtk3
 
@@ -49,14 +47,10 @@
       fortune
       file
       cheat
-      comma
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       mold
       blueprint-compiler
-      cached-nix-shell
-      nix-output-monitor
       tor-browser-bundle-bin
-      hydra-check
       binutils
       digikam
       my.system-monitoring-center
@@ -84,10 +78,6 @@
     exa = {
       enable = true;
       enableAliases = true;
-    };
-    nix-index = {
-      enable = true;
-      enableBashIntegration = true;
     };
     chromium = {
       enable = true;
