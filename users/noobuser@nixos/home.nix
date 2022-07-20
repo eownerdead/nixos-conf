@@ -6,6 +6,9 @@
     ../noobuser/firefox.nix
     ../noobuser/nushell.nix
     ../noobuser/gnome.nix
+
+    ../noobuser/dev/cpp.nix
+    ../noobuser/dev/rust.nix
   ];
 
   home = {
@@ -18,23 +21,9 @@
       wireshark
       inkscape
       # sourcetrail
-      cargo
-      cargo-asm
-      cargo-edit
-      cargo-sort
-      cargo-generate
-      rustc
-      rustfmt
-      clippy
-      rust-analyzer
-      crate2nix
       thunderbird-wayland
       drawing
       pkgconfig
-      # error: collision between `/nix/store/xxx-gcc-wrapper-10.3.0/bin/ld' and
-      # `/nix/store/xxx-clang-wrapper-11.1.0/bin/ld'
-      # clang
-      gcc
       gnome-usage
       my.adw-gtk3
 
@@ -51,7 +40,6 @@
       mold
       blueprint-compiler
       tor-browser-bundle-bin
-      binutils
       digikam
       my.system-monitoring-center
       my.dialect
