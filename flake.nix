@@ -18,7 +18,6 @@
 
       supportedSystems = [ "x86_64-linux" ];
 
-
       sharedOverlays = [ nur.overlay ];
 
       channels = {
@@ -67,6 +66,10 @@
             ./hosts/home-server/configuration.nix
           ];
         };
+      };
+
+      outputsBuilder = channels: {
+        formatter = channels.unstable.nixpkgs-fmt;
       };
     };
 }
