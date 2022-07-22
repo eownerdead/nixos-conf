@@ -43,6 +43,7 @@
       digikam
       virt-manager
       fragments
+      libreoffice
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
