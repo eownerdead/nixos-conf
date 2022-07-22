@@ -41,6 +41,7 @@
       blueprint-compiler
       tor-browser-bundle-bin
       digikam
+      virt-manager
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
