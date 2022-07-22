@@ -42,6 +42,7 @@
       tor-browser-bundle-bin
       digikam
       virt-manager
+      fragments
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
