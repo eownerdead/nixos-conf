@@ -138,6 +138,7 @@
       enable = true;
       dockerCompat = true;
     };
+    libvirtd.enable = true;
   };
 
   system = {
