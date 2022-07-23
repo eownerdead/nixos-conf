@@ -72,6 +72,7 @@ in
   "workbench.settings.editor" = "json";
   "workbench.settings.enableNaturalLanguageSearch" = false;
 
+  "window.commandCenter" = true;
   "window.menuBarVisibility" = "visible";
   "window.restoreWindows" = "one";
   "window.titleBarStyle" = "custom";
