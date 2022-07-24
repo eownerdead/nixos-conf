@@ -44,6 +44,7 @@
       virt-manager
       fragments
       libreoffice
+      libsForQt5.qtstyleplugin-kvantum
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
