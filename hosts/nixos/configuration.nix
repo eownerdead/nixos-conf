@@ -64,7 +64,10 @@
     xserver = {
       enable = true;
       videoDrivers = [ "nvidia" ];
-      displayManager.gdm.enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
       desktopManager.gnome.enable = true;
       extraLayouts.fast = {
         description = "";
@@ -98,7 +101,10 @@
   # services.xserver.xkbOptions = "eurosign:e";
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware = {
+    pulseaudio.enable = true;
+    nvidia.modesetting.enable = true;
+  };
 
   users.users.noobuser = {
     isNormalUser = true;
@@ -139,6 +145,7 @@
       dockerCompat = true;
     };
     libvirtd.enable = true;
+    waydroid.enable = true;
   };
 
   system = {
