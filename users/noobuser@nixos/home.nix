@@ -2,6 +2,7 @@
 {
   imports = [
     ../noobuser/nix-tools.nix
+    ../noobuser/git.nix
     ../noobuser/vscode.nix
     ../noobuser/firefox.nix
     ../noobuser/nushell.nix
@@ -73,12 +74,6 @@
     };
     chromium = {
       enable = true;
-    };
-    git = {
-      enable = true;
-      delta.enable = true;
-      userEmail = "you@example.com";
-      userName = "Your Name";
     };
     home-manager.enable = true;
   };
