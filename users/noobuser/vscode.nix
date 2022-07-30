@@ -23,7 +23,7 @@
       llvm-vs-code-extensions.vscode-clangd
       matklad.rust-analyzer
       serayuzgur.crates
-      ms-python.python
+      # ms-python.python
     ];
     userSettings = import ./vscode-settings.nix;
   };
