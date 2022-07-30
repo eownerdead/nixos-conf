@@ -7,6 +7,7 @@
     ../noobuser/nushell.nix
     ../noobuser/gnome.nix
 
+    ../noobuser/dev/py.nix
     ../noobuser/dev/cpp.nix
     ../noobuser/dev/rust.nix
   ];
@@ -29,7 +30,6 @@
 
       tutanota-desktop
       nemiver
-      python3Packages.jedi-language-server
       icon-library
       gitg
       gtranslator
