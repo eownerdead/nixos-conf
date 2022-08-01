@@ -11,5 +11,6 @@
     clippy
     rust-analyzer
     crate2nix
+    sccache
   ];
 }
