@@ -1,5 +1,5 @@
 { python3
-, fetchgit
+, fetchFromGitHub
 , meson
 , ninja
 , gobject-introspection
@@ -8,17 +8,20 @@
 , pkg-config
 , libadwaita
 , libsoup_3
+, blueprint-compiler
 }:
 python3.pkgs.buildPythonApplication rec {
   pname = "dialect";
-  version = "main";
+  version = "2.0.2";
 
   format = "other";
 
-  src = fetchgit {
-    url = "https://github.com/dialect-app/${pname}/";
-    rev = "293a0d8135f0ba076121b9974951041b93adb9c2";
-    sha256 = "sha256-0O+L0DygSpytmQCrarTQoxNVyi4UonyTMZke2+F21EI=";
+  src = fetchFromGitHub {
+    owner = "dialect-app";
+    repo = "${pname}";
+    rev = version;
+    fetchSubmodules = true;
+    sha256 = "sha256-55vqxS0ySV8lItxLl1J+wLvPtmR87HzGfAiOKuhigFA=";
   };
 
   nativeBuildInputs = [
@@ -28,6 +31,7 @@ python3.pkgs.buildPythonApplication rec {
     wrapGAppsHook
     gobject-introspection
     desktop-file-utils
+    blueprint-compiler
   ];
 
   buildInputs = [
