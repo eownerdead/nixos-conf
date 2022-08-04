@@ -50,11 +50,18 @@
               };
             }
             {
-              nixpkgs.config.allowUnfreePredicate = pkg:
-                builtins.elem (nixpkgs.lib.getName pkg) [
-                  "nvidia-x11"
-                  "nvidia-settings"
-                ];
+              nixpkgs.config = {
+                allowUnfreePredicate = pkg:
+                  builtins.elem (nixpkgs.lib.getName pkg) [
+                    "nvidia-x11"
+                    "nvidia-settings"
+                    "googleearth-pro"
+                  ];
+                allowInsecurePredicate = pkgs:
+                  builtins.elem (nixpkgs.lib.getName pkgs) [
+                    "googleearth-pro"
+                  ];
+              };
             }
           ];
         };
