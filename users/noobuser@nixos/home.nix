@@ -46,6 +46,7 @@
       fragments
       libreoffice
       libsForQt5.qtstyleplugin-kvantum
+      googleearth-pro
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
