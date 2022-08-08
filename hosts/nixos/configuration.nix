@@ -119,6 +119,7 @@
       chrome-gnome-shell
       ntfs3g
       cachix
+      unzip
     ];
     variables = {
       # https://github.com/NixOS/nixpkgs/issues/32580
