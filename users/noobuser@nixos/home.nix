@@ -52,6 +52,7 @@
       my.morisawa-biz-ud-gothic
       my.morisawa-biz-ud-mincho
       my.translate-locally-bin
+      my.textadept-gtk3
     ] ++ (with pkgs.gnome; [
       gnome-todo
       ghex
