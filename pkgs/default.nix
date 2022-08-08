@@ -9,4 +9,5 @@ with pkgs; {
   morisawa-biz-ud-mincho = callPackage ./morisawa-biz-ud-mincho { };
   translate-locally-bin = callPackage ./translate-locally-bin { };
   firefox-gnome-theme = callPackage ./firefox-gnome-theme { };
+  textadept-gtk3 = callPackage ./textadept-gtk3 { };
 }
