@@ -6,6 +6,7 @@
     cargo-edit
     cargo-sort
     cargo-generate
+    cargo-expand
     rustc
     rustfmt
     clippy
