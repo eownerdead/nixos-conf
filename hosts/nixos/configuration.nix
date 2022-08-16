@@ -27,6 +27,7 @@
       };
       efi.canTouchEfiVariables = true;
     };
+    kernelPackages = pkgs.linuxPackages_hardened;
 
     plymouth.enable = true;
 
@@ -121,6 +122,7 @@
       cachix
       unzip
     ];
+    # memoryAllocator.provider = "graphene-hardened";
     variables = {
       # https://github.com/NixOS/nixpkgs/issues/32580
       WEBKIT_DISABLE_COMPOSITING_MODE = "1";
