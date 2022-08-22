@@ -87,6 +87,7 @@
   };
 
   programs = {
+    bash.shellAliases.sudo = "doas";
     git = {
       enable = true;
       config = {
@@ -131,6 +132,11 @@
       # https://github.com/NixOS/nixpkgs/issues/32580
       WEBKIT_DISABLE_COMPOSITING_MODE = "1";
     };
+  };
+
+  security = {
+    sudo.enable = false;
+    doas.enable = true;
   };
 
   i18n = {
