@@ -105,7 +105,10 @@
   sound.enable = true;
   hardware = {
     pulseaudio.enable = true;
-    nvidia.modesetting.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true; # Fix suspend on wayland
+    };
   };
 
   users.users.noobuser = {
