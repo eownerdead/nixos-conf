@@ -27,6 +27,7 @@
       };
       efi.canTouchEfiVariables = true;
     };
+    kernel.sysctl."kernel.unprivileged_userns_clone" = 1;
     kernelPackages = pkgs.linuxPackages_hardened;
 
     plymouth.enable = true;
@@ -143,6 +144,7 @@
   ];
 
   virtualisation = {
+    containers.storage.settings.storage.driver = "zfs";
     podman = {
       enable = true;
       dockerCompat = true;
