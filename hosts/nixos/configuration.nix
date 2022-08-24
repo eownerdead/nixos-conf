@@ -11,6 +11,7 @@
       dates = "monthly";
       options = "--delete-older-than 30d";
     };
+    settings.auto-optimise-store = true;
     binaryCaches = [
       "https://cuda-maintainers.cachix.org"
     ];
