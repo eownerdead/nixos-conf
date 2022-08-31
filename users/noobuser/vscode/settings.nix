@@ -127,16 +127,6 @@ in
     }
   ];
 
-  "clangd.arguments" = [
-    "-fallback-style=\"{DisableFormat =true}\""
-    "-clang-tidy"
-    "-pch-storage=memory"
-    "-cross-file-rename"
-    "-completion-parse=auto"
-    "-log=info"
-    "-enable-config"
-  ];
-
   "commentTranslate.hover.string" = true;
   "commentTranslate.multiLineMerge" = true;
   "commentTranslate.targetLanguage" = "ja";
@@ -153,19 +143,6 @@ in
     "rgba(33,150,243,0.3)"
   ];
   "indentRainbow.tabmixColor" = "rgba(213,0,0,0.6)";
-
-  "nix.enableLanguageServer" = true;
-
-  "python.languageServer" = "Jedi";
-  "python.linting.flake8Enabled" = true;
-  "python.linting.mypyEnabled" = true;
-  "python.linting.pydocstyleEnabled" = true;
-  "python.linting.pylintEnabled" = false;
-
-  "rust-analyzer.checkOnSave.command" = "clippy";
-  "rust-analyzer.experimental.procAttrMacros" = true;
-  "rust-analyzer.inlayHints.enable" = false;
-  "rust-analyzer.updates.askBeforeDownload" = true;
 
   "sourcetrail.startServerAtStartup" = true;
 

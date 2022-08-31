@@ -16,15 +16,10 @@
       timonwong.shellcheck
       mads-hartmann.bash-ide-vscode
       editorconfig.editorconfig
-      jnoortheen.nix-ide
-      arrterian.nix-env-selector
       redhat.vscode-yaml
       jock.svg
-      llvm-vs-code-extensions.vscode-clangd
-      matklad.rust-analyzer
-      serayuzgur.crates
       # ms-python.python
     ];
-    userSettings = import ./vscode-settings.nix;
+    userSettings = import ./settings.nix;
   };
 }

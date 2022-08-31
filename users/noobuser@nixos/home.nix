@@ -1,16 +1,22 @@
 { lib, pkgs, ... }:
 {
   imports = [
-    ../noobuser/nix-tools.nix
     ../noobuser/git.nix
-    ../noobuser/vscode.nix
     ../noobuser/firefox.nix
     ../noobuser/nushell.nix
     ../noobuser/gnome.nix
 
+    ../noobuser/vscode
+    ../noobuser/dev/nix.nix
+    ../noobuser/vscode/nix.nix
     ../noobuser/dev/py.nix
+    ../noobuser/vscode/py.nix
     ../noobuser/dev/cpp.nix
-    ../noobuser/dev/rust.nix
+    ../noobuser/vscode/cpp.nix
+    ../noobuser/dev/rs.nix
+    ../noobuser/vscode/rs.nix
+    ../noobuser/dev/hs.nix
+    ../noobuser/vscode/hs.nix
   ];
 
   home = {
