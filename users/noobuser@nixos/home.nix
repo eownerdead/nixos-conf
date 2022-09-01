@@ -1,6 +1,7 @@
 { lib, pkgs, ... }:
 {
   imports = [
+    ../noobuser/cli.nix
     ../noobuser/git.nix
     ../noobuser/firefox.nix
     ../noobuser/nushell.nix
@@ -68,20 +69,6 @@
   };
 
   programs = {
-    bash = {
-      enable = true;
-      initExtra = ''
-        fortune
-        echo
-
-        [ -v $USE_BASH ] && exec nu
-      '';
-    };
-    bat.enable = true;
-    exa = {
-      enable = true;
-      enableAliases = true;
-    };
     chromium = {
       enable = true;
     };
