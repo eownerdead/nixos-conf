@@ -55,6 +55,8 @@
       libsForQt5.qtstyleplugin-kvantum
       googleearth-pro
       bochs
+      geany
+      gnome-builder
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
