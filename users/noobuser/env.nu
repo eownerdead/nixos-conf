@@ -5,3 +5,5 @@ def bash-run [...cmd: string] {
 }
 
 alias tree = exa -T --icons
+
+source ~/.config/nushell/.zoxide.nu
