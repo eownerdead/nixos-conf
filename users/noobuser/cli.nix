@@ -7,7 +7,7 @@
         fortune
         echo
 
-        [ -v $USE_BASH ] && exec nu
+        [ -v $USE_BASH ] && exec fish
       '';
     };
     bat.enable = true;
@@ -22,6 +22,7 @@
     zoxide = {
       enable = true;
       enableBashIntegration = true;
+      options = [ "--cmd" "cd" ];
     };
   };
 }

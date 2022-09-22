@@ -5,6 +5,7 @@
     ../noobuser/git.nix
     ../noobuser/firefox.nix
     ../noobuser/nushell.nix
+    ../noobuser/fish.nix
     ../noobuser/gnome.nix
 
     ../noobuser/vscode
