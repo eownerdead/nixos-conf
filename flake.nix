@@ -64,6 +64,9 @@
               };
             }
           ];
+          specialArgs = {
+            nixpkgs = unstable;
+          };
         };
 
         home-server = {
