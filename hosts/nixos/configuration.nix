@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -12,6 +12,9 @@
       options = "--delete-older-than 30d";
     };
     settings.auto-optimise-store = true;
+    # https://discourse.nixos.org/t/local-flake-based-nix-search-nix-run-and-nix-shell
+    registry.nixpkgs.flake = nixpkgs;
+    nixPath = [ "nixpkgs=${nixpkgs}" ];
     binaryCaches = [
       "https://cuda-maintainers.cachix.org"
     ];
