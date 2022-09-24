@@ -74,6 +74,7 @@
     gitDaemon = {
       enable = true;
       basePath = "/srv/git/";
+      listenAddress = "git.null.dedyn.io";
       options = "--enable=receive-pack";
     };
 
@@ -82,7 +83,8 @@
       virtualHosts."null.dedyn.io".basicAuthFile = "/etc/nginx/.htpasswd";
       gitweb = {
         enable = true;
-        virtualHost = "null.dedyn.io";
+        location = "";
+        virtualHost = "git.null.dedyn.io";
       };
     };
   };
