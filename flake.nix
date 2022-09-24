@@ -75,6 +75,9 @@
           modules = [
             ./hosts/home-server/configuration.nix
           ];
+          specialArgs = {
+            inherit nixpkgs;
+          };
         };
       };
 

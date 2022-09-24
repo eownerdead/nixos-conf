@@ -1,20 +1,15 @@
 { config, pkgs, nixpkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../common/enable-flake.nix
+    ../common/auto-gc.nix
+    ../common/use-local-nix.nix
+    ../common/doas.nix
+  ];
 
   nix = {
-    # Make ready for nix flakes
-    package = pkgs.nixFlakes;
-    extraOptions = ''experimental-features = nix-command flakes'';
-    gc = {
-      automatic = true;
-      dates = "monthly";
-      options = "--delete-older-than 30d";
-    };
     settings.auto-optimise-store = true;
-    # https://discourse.nixos.org/t/local-flake-based-nix-search-nix-run-and-nix-shell
-    registry.nixpkgs.flake = nixpkgs;
-    nixPath = [ "nixpkgs=${nixpkgs}" ];
     binaryCaches = [
       "https://cuda-maintainers.cachix.org"
     ];
@@ -91,7 +86,6 @@
   };
 
   programs = {
-    bash.shellAliases.sudo = "doas";
     git = {
       enable = true;
       config = {
@@ -136,11 +130,6 @@
       # https://github.com/NixOS/nixpkgs/issues/32580
       WEBKIT_DISABLE_COMPOSITING_MODE = "1";
     };
-  };
-
-  security = {
-    sudo.enable = false;
-    doas.enable = true;
   };
 
   i18n = {

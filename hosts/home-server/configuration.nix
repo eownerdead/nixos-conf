@@ -1,16 +1,15 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../common/enable-flake.nix
+    ../common/auto-gc.nix
+    ../common/use-local-nix.nix
+    ../common/doas.nix
+  ];
 
   nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flakes";
-    gc = {
-      automatic = true;
-      dates = "monthly";
-      options = "--delete-older-than 30d";
-    };
-    autoOptimiseStore = true;
+    settings.auto-optimise-store = true;
   };
 
   boot.loader = {
