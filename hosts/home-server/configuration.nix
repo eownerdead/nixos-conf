@@ -79,9 +79,10 @@
 
     nginx = {
       enable = true;
+      virtualHosts."null.dedyn.io".basicAuthFile = "/etc/nginx/.htpasswd";
       gitweb = {
         enable = true;
-        virtualHost = "home-server.local";
+        virtualHost = "null.dedyn.io";
       };
     };
   };
