@@ -33,7 +33,6 @@
         }
       ];
     };
-    firewall.allowedTCPPorts = [ 80 ]; # nextcloud
   };
 
   i18n.defaultLocale = "ja_JP.UTF-8";
@@ -72,9 +71,6 @@
     nginx = {
       enable = true;
       virtualHosts."home-server.local".locations = {
-        "/nextcloud/" = {
-          proxyPass = "http://127.0.0.1:80/";
-        };
         "/yacy/" = {
           proxyPass = "http://127.0.0.1:8090/";
           extraConfig = ''
@@ -83,39 +79,7 @@
         };
       };
     };
-
-    # https://discourse.nixos.org/t/minimal-working-nextcloud-config/9316
-    nextcloud = {
-      enable = true;
-      hostName = "127.0.0.1";
-      config = {
-        extraTrustedDomains = [ "*" ];
-        dbtype = "mysql";
-        # TODO
-        dbport = ''3306',
-          'overwritehost' => 'home-server.local',
-          'overwritewebroot' => '/nextcloud'';
-        dbpassFile = "/etc/nextcloud_dbpass.txt";
-        adminpassFile = "/etc/nextcloud_adminpass.txt";
-      };
-    };
-
-    mysql = {
-      enable = true;
-      package = pkgs.mariadb;
-      ensureDatabases = [
-        "nextcloud"
-      ];
-      ensureUsers = [
-        {
-          name = "nextcloud";
-          ensurePermissions = {
-            "nextcloud.*" = "ALL PRIVILEGES";
-          };
-        }
-      ];
-    };
   };
 
-  system.stateVersion = "21.11";
+  system.stateVersion = "22.05";
 }
