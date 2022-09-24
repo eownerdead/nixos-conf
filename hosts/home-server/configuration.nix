@@ -32,6 +32,10 @@
         }
       ];
     };
+    firewall.allowedTCPPorts = [
+      80 # nginx
+      9418 # git
+    ];
   };
 
   i18n.defaultLocale = "ja_JP.UTF-8";
@@ -67,15 +71,17 @@
       };
     };
 
+    gitDaemon = {
+      enable = true;
+      basePath = "/srv/git/";
+      options = "--enable=receive-pack";
+    };
+
     nginx = {
       enable = true;
-      virtualHosts."home-server.local".locations = {
-        "/yacy/" = {
-          proxyPass = "http://127.0.0.1:8090/";
-          extraConfig = ''
-            proxy_redirect default;
-          '';
-        };
+      gitweb = {
+        enable = true;
+        virtualHost = "home-server.local";
       };
     };
   };
