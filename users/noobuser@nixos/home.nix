@@ -42,9 +42,6 @@
       icon-library
       gitg
       gtranslator
-      fortune
-      file
-      cheat
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       mold
       blueprint-compiler

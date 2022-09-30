@@ -1,5 +1,11 @@
 { pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    fortune
+    file
+    cheat
+  ];
+
   programs = {
     bash = {
       enable = true;

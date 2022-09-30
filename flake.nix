@@ -7,12 +7,25 @@
     nur.url = "github:nix-community/NUR";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     home-manager = {
+      url = "github:nix-community/home-manager/release-22.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "unstable";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, unstable, nur, utils, home-manager, ... }:
+  outputs =
+    inputs@{ self
+    , nixpkgs
+    , unstable
+    , nur
+    , utils
+    , home-manager
+    , home-manager-unstable
+    , ...
+    }:
     utils.lib.mkFlake {
       inherit self inputs;
 
@@ -39,7 +52,7 @@
           channelName = "unstable";
           modules = [
             ./hosts/nixos/configuration.nix
-            home-manager.nixosModules.home-manager
+            home-manager-unstable.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -74,6 +87,16 @@
           channelName = "nixpkgs";
           modules = [
             ./hosts/home-server/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users = {
+                  noobuser = import (./. + "/users/noobuser@home-server/home.nix");
+                };
+              };
+            }
           ];
           specialArgs = {
             inherit nixpkgs;
