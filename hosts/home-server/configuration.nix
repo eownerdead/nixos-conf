@@ -44,7 +44,7 @@
     keyMap = "jp106";
   };
 
-  users.users.user1 = {
+  users.users.noobuser = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
