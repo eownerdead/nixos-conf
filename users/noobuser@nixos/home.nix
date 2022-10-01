@@ -33,7 +33,6 @@
       # sourcetrail
       thunderbird-wayland
       drawing
-      pkgconfig
       gnome-usage
       my.adw-gtk3
 
