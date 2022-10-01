@@ -78,6 +78,16 @@
       };
     };
 
+    ddclient = {
+      enable = true;
+      server = "update.dedyn.io";
+      username = "null.dedyn.io";
+      domains = [ "null.dedyn.io" ];
+      use = "cmd, cmd='${pkgs.curl}/bin/curl https://checkipv6.dedyn.io/'";
+      passwordFile = "/etc/dedyn_token";
+      ipv6 = true;
+    };
+
     gitDaemon = {
       enable = true;
       basePath = "/srv/git/";
