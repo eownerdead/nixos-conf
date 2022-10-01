@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
+    (nixpkgs.outPath + "/nixos/modules/profiles/hardened.nix")
+
     ../common/enable-flake.nix
     ../common/auto-gc.nix
     ../common/use-local-nix.nix
