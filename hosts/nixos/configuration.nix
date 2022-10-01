@@ -5,6 +5,7 @@
     ../common/enable-flake.nix
     ../common/auto-gc.nix
     ../common/use-local-nix.nix
+    ../common/auto-upgrade.nix
     ../common/doas.nix
   ];
 
@@ -85,18 +86,6 @@
     flatpak.enable = true;
   };
 
-  programs = {
-    git = {
-      enable = true;
-      config = {
-        user = {
-          email = "you@example.com";
-          name = "Your Name";
-        };
-      };
-    };
-  };
-
   # Configure keymap in X11
   # services.xserver.layout = "jp106";
   # services.xserver.xkbOptions = "eurosign:e";
@@ -155,12 +144,5 @@
     waydroid.enable = true;
   };
 
-  system = {
-    stateVersion = "21.11";
-    autoUpgrade = {
-      enable = true;
-      flake = "/home/noobuser/.dotfiles";
-      flags = [ "--recreate-lock-file" "--commit-lock-file" ];
-    };
-  };
+  system.stateVersion = "21.11";
 }

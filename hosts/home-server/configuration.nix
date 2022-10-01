@@ -5,6 +5,7 @@
     ../common/enable-flake.nix
     ../common/auto-gc.nix
     ../common/use-local-nix.nix
+    ../common/auto-upgrade.nix
     ../common/doas.nix
   ];
 
