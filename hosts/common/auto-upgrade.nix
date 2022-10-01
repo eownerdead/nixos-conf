@@ -2,7 +2,7 @@
 {
   system.autoUpgrade = {
     enable = true;
-    flake = "/home/noobuser/.dotfiles";
+    flake = "/home/noobuser/nixos-conf";
     flags = [ "--recreate-lock-file" "--commit-lock-file" ];
   };
 
