@@ -88,21 +88,18 @@
       ipv6 = true;
     };
 
-    gitDaemon = {
-      enable = true;
-      basePath = "/srv/git/";
-      listenAddress = "git.null.dedyn.io";
-      options = "--enable=receive-pack";
-    };
-
     nginx = {
       enable = true;
-      virtualHosts."null.dedyn.io".basicAuthFile = "/etc/nginx/.htpasswd";
-      gitweb = {
-        enable = true;
-        location = "";
-        virtualHost = "git.null.dedyn.io";
+      virtualHosts = {
+        "null.dedyn.io".basicAuthFile = "/etc/nginx/.htpasswd";
+        "git.null.dedyn.io".locations."/".proxyPass = "http://0.0.0.0:3000";
       };
+    };
+
+    gitea = {
+      enable = true;
+      # domain = "git.null.dedyn.io";
+      database.type = "mysql";
     };
   };
 
