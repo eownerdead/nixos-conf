@@ -52,9 +52,13 @@
     extraGroups = [ "wheel" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    wget
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      wget
+    ];
+    # https://github.com/NixOS/nixpkgs/issues/93116
+    memoryAllocator.provider = "libc";
+  };
 
   programs.git.enable = true;
 
