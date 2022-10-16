@@ -60,7 +60,7 @@
       my.morisawa-biz-ud-mincho
       my.translate-locally-bin
       my.textadept-gtk3
-      my.hobbits
+      hobbits
     ] ++ (with pkgs.gnome; [
       gnome-todo
       ghex
