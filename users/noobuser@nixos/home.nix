@@ -61,6 +61,7 @@
       my.translate-locally-bin
       my.textadept-gtk3
       hobbits
+      qalculate-gtk
     ] ++ (with pkgs.gnome; [
       gnome-todo
       ghex
