@@ -65,7 +65,6 @@
     };
     xserver = {
       enable = true;
-      videoDrivers = [ "nvidia" ];
       displayManager.gdm = {
         enable = true;
         wayland = true;
@@ -91,13 +90,7 @@
   # services.xserver.xkbOptions = "eurosign:e";
 
   sound.enable = true;
-  hardware = {
-    pulseaudio.enable = true;
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = true; # Fix suspend on wayland
-    };
-  };
+  hardware.pulseaudio.enable = true;
 
   users.users.noobuser = {
     isNormalUser = true;
@@ -115,10 +108,6 @@
       unzip
     ];
     # memoryAllocator.provider = "graphene-hardened";
-    variables = {
-      # https://github.com/NixOS/nixpkgs/issues/32580
-      WEBKIT_DISABLE_COMPOSITING_MODE = "1";
-    };
   };
 
   i18n = {
