@@ -7,9 +7,10 @@
     ];
     userSettings = {
       "rust-analyzer.checkOnSave.command" = "clippy";
-      "rust-analyzer.experimental.procAttrMacros" = true;
-      "rust-analyzer.inlayHints.enable" = false;
-      "rust-analyzer.updates.askBeforeDownload" = true;
+      "rust-analyzer.inlayHints.chainingHints.enable" = false;
+      "rust-analyzer.inlayHints.closingBraceHints.enable" = false;
+      "rust-analyzer.inlayHints.parameterHints.enable" = false;
+      "rust-analyzer.inlayHints.typeHints.enable" = false;
     };
   };
 }
