@@ -53,6 +53,12 @@
         };
       };
 
+      nix = {
+        generateRegistryFromInputs = true;
+        generateNixPathFromInputs = true;
+        linkInputs = true;
+      };
+
       hosts = {
         nixos = {
           system = "x86_64-linux";
