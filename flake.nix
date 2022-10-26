@@ -14,6 +14,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "unstable";
     };
+    nix-index-database.url = "github:Mic92/nix-index-database";
   };
 
   outputs =
@@ -24,6 +25,7 @@
     , utils
     , home-manager
     , home-manager-unstable
+    , nix-index-database
     , ...
     }:
     utils.lib.mkFlake {
@@ -31,7 +33,12 @@
 
       supportedSystems = [ "x86_64-linux" ];
 
-      sharedOverlays = [ nur.overlay ];
+      sharedOverlays = [
+        nur.overlay
+        (self: super: with nix-index-database.legacyPackages.x86_64-linux; {
+          inherit database;
+        })
+      ];
 
       channels = {
         nixpkgs = {
