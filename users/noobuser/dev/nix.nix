@@ -15,4 +15,9 @@
     enable = true;
     enableBashIntegration = true;
   };
+
+  home.file."nix-index-database" = {
+    target = ".cache/nix-index/files";
+    source = pkgs.database;
+  };
 }
