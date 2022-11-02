@@ -8,8 +8,16 @@
     profiles.default = {
       userChrome = ''
         @import "firefox-gnome-theme/userChrome.css";
-        @import "firefox-gnome-theme/theme/colors/dark.css";
       '';
+      userContent = ''
+        @import "firefox-gnome-theme/userContent.css";
+      '';
+      settings = {
+        "gnomeTheme.hideSingleTab" = true;
+        "gnomeTheme.dragWindowHeaderbarButtons" = true;
+      };
+      extraConfig = builtins.readFile
+        "${pkgs.my.firefox-gnome-theme}/configuration/user.js";
     };
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
       ublock-origin
