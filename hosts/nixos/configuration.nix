@@ -7,13 +7,13 @@
     ../common/doas.nix
   ];
 
-  nix = {
-    settings.auto-optimise-store = true;
-    binaryCaches = [
-      "https://cuda-maintainers.cachix.org"
+  nix.settings = {
+    auto-optimise-store = true;
+    substituters = [
+      "https://nix-community.cachix.org"
     ];
-    binaryCachePublicKeys = [
-      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+    trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
 
