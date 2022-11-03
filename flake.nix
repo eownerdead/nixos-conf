@@ -15,6 +15,7 @@
       inputs.nixpkgs.follows = "unstable";
     };
     nix-index-database.url = "github:Mic92/nix-index-database";
+    emacs.url = "github:nix-community/emacs-overlay";
   };
 
   outputs =
@@ -26,6 +27,7 @@
     , home-manager
     , home-manager-unstable
     , nix-index-database
+    , emacs
     , ...
     }:
     utils.lib.mkFlake {
@@ -35,6 +37,7 @@
 
       sharedOverlays = [
         nur.overlay
+        emacs.overlay
         (self: super: with nix-index-database.legacyPackages.x86_64-linux; {
           inherit database;
         })

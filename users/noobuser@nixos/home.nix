@@ -62,6 +62,7 @@
       my.textadept-gtk3
       hobbits
       qalculate-gtk
+      emacsPgtk
     ] ++ (with pkgs.gnome; [
       gnome-todo
       ghex
