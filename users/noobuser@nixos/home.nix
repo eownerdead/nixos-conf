@@ -55,6 +55,9 @@
       geany
       gnome-builder
       newsflash
+      darktable
+      hdrmerge
+      hugin
       my.system-monitoring-center
       my.dialect
       my.morisawa-biz-ud-gothic
