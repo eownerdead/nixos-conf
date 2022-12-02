@@ -2,17 +2,12 @@
   description = "My System Config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-22.05";
-    unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-22.11";
     nur.url = "github:nix-community/NUR";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-manager-unstable = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "unstable";
     };
     nix-index-database.url = "github:Mic92/nix-index-database";
     emacs.url = "github:nix-community/emacs-overlay";
@@ -21,11 +16,9 @@
   outputs =
     inputs@{ self
     , nixpkgs
-    , unstable
     , nur
     , utils
     , home-manager
-    , home-manager-unstable
     , nix-index-database
     , emacs
     , ...
@@ -49,15 +42,10 @@
             (self: super: { my = import ./pkgs { pkgs = channels.nixpkgs; }; })
           ];
         };
-        unstable = {
-          overlaysBuilder = channels: [
-            (self: super: { my = import ./pkgs { pkgs = channels.unstable; }; })
-          ];
-        };
       };
 
       nix = {
-        generateRegistryFromInputs = true;
+        # generateRegistryFromInputs = true;
         generateNixPathFromInputs = true;
         linkInputs = true;
       };
@@ -65,10 +53,10 @@
       hosts = {
         nixos = {
           system = "x86_64-linux";
-          channelName = "unstable";
+          channelName = "nixpkgs";
           modules = [
             ./hosts/nixos/configuration.nix
-            home-manager-unstable.nixosModules.home-manager
+            home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -93,9 +81,7 @@
               };
             }
           ];
-          specialArgs = {
-            nixpkgs = unstable;
-          };
+          specialArgs = { inherit nixpkgs; };
         };
 
         home-server = {
@@ -114,14 +100,12 @@
               };
             }
           ];
-          specialArgs = {
-            inherit nixpkgs;
-          };
+          specialArgs = { inherit nixpkgs; };
         };
       };
 
       outputsBuilder = channels: {
-        formatter = channels.unstable.nixpkgs-fmt;
+        formatter = channels.nixpkgs.nixpkgs-fmt;
       };
     };
 }
