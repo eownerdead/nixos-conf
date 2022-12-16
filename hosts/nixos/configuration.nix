@@ -82,8 +82,19 @@
     avahi.nssmdns = true;
     flatpak.enable = true;
   };
-  
-  programs.wireshark.enable = true;
+
+  programs = {
+    git = {
+      enable = true;
+      config = {
+        user = {
+          email = "you@example.com";
+          name = "Your Name";
+        };
+      };
+    };
+    wireshark.enable = true;
+  };
 
   # Configure keymap in X11
   # services.xserver.layout = "jp106";
