@@ -133,5 +133,12 @@
     waydroid.enable = true;
   };
 
-  system.stateVersion = "21.11";
+  system = {
+    stateVersion = "21.11";
+    autoUpgrade = {
+      enable = true;
+      flake = "/home/noobuser/nixos-conf";
+      flags = [ "--recreate-lock-file" "--commit-lock-file" ];
+    };
+  };
 }
