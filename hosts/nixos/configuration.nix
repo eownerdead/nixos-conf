@@ -82,6 +82,8 @@
     avahi.nssmdns = true;
     flatpak.enable = true;
   };
+  
+  programs.wireshark.enable = true;
 
   # Configure keymap in X11
   # services.xserver.layout = "jp106";
@@ -92,7 +94,7 @@
 
   users.users.noobuser = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "wireshark" "adbusers" ];
+    extraGroups = [ "wheel" "adbusers" ];
   };
 
   environment = {
