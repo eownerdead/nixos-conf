@@ -1,7 +1,7 @@
 { fetchFromGitHub }:
 let
   pname = "firefox-gnome-theme";
-  version = "v102";
+  version = "v108";
 in
 fetchFromGitHub {
   name = "${pname}-${version}";
@@ -9,5 +9,5 @@ fetchFromGitHub {
   owner = "rafaelmardojai";
   repo = pname;
   rev = version;
-  hash = "sha256-LwHDZV688YVkddgWVUIk07FUeT0Z+E+mETWmOZ7U73k=";
+  hash = "sha256-USZ1NgG14QMBcQZip2tkf63IOhhyWvwWkuKDOZOWMJA=";
 }
