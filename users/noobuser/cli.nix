@@ -12,8 +12,6 @@
       initExtra = ''
         fortune
         echo
-
-        [ -v $USE_BASH ] && exec fish
       '';
     };
     bat.enable = true;
