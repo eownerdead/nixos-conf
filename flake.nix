@@ -107,5 +107,7 @@
       outputsBuilder = channels: {
         formatter = channels.nixpkgs.nixpkgs-fmt;
       };
+      templates.default = { path = ./templates/default; };
     };
 }
+
