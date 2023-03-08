@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
+  imports = [
+    inputs.nix-index-database.hmModules.nix-index
+  ];
+
   home.packages = with pkgs; [
     rnix-lsp
     nixpkgs-fmt
@@ -14,10 +18,5 @@
   programs.nix-index = {
     enable = true;
     enableBashIntegration = true;
-  };
-
-  home.file."nix-index-database" = {
-    target = ".cache/nix-index/files";
-    source = pkgs.database;
   };
 }
