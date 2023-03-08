@@ -50,7 +50,6 @@
       fragments
       libreoffice
       libsForQt5.qtstyleplugin-kvantum
-      googleearth-pro
       bochs
       geany
       gnome-builder
@@ -66,7 +65,6 @@
       my.textadept-gtk3
       hobbits
       qalculate-gtk
-      emacsPgtk
     ] ++ (with pkgs.gnome; [
       gnome-todo
       ghex
