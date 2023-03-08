@@ -5,6 +5,7 @@
     ../common/enable-flake.nix
     ../common/auto-gc.nix
     ../common/doas.nix
+    ../common/nvidia.nix
   ];
 
   nix.settings = {
@@ -34,12 +35,10 @@
     zfs.devNodes = "/dev/";
   };
 
-
   console = {
     # font = "Lat2-Terminus16";
     keyMap = "jp106";
   };
-
   time.timeZone = "Asia/Tokyo";
 
   networking = {
