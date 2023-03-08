@@ -2,7 +2,7 @@
 {
   nix.gc = {
     automatic = true;
-    dates = "monthly";
-    options = "--delete-older-than 30d";
+    dates = "weekly";
+    options = "--delete-older-than 7d";
   };
 }
