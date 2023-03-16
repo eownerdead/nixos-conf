@@ -4,7 +4,7 @@
     nixos = withSystem "x86_64-linux" ({ pkgs, system, ... }:
       inputs.nixpkgs.lib.nixosSystem rec {
         inherit system;
-        specialArgs = { inherit pkgs; };
+        specialArgs = { inherit pkgs inputs; };
         modules = [
           inputs.home-manager.nixosModules.home-manager
           {
@@ -29,6 +29,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              specialExtraArgs = { inherit inputs; };
               users = {
                 noobuser = import (../. + "/users/noobuser@home-server");
               };
