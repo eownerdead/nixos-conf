@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, inputs, ... }:
 {
   imports = [
     ../noobuser/cli.nix
@@ -7,6 +7,7 @@
     ../noobuser/nushell.nix
     ../noobuser/fish.nix
     ../noobuser/gnome.nix
+    ../noobuser/emacs
 
     ../noobuser/vscode
     ../noobuser/dev/nix.nix
@@ -78,3 +79,4 @@
     home-manager.enable = true;
   };
 }
+

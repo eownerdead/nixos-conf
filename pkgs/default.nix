@@ -11,4 +11,7 @@ with pkgs; {
   firefox-gnome-theme = callPackage ./firefox-gnome-theme { };
   textadept-gtk3 = callPackage ./textadept-gtk3 { };
   hobbits = callPackage ./hobbits { };
+  emacsPackages = import ./elisp-packages {
+    inherit pkgs;
+  };
 }
