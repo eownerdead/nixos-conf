@@ -35,7 +35,6 @@
       thunderbird-wayland
       drawing
       gnome-usage
-      my.adw-gtk3
 
       tutanota-desktop
       nemiver
@@ -66,6 +65,8 @@
       my.textadept-gtk3
       hobbits
       qalculate-gtk
+      coq
+      gnumake
     ] ++ (with pkgs.gnome; [
       gnome-todo
       ghex
