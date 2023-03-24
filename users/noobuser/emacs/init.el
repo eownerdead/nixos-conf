@@ -454,6 +454,26 @@
   :custom
   (markdown-header-scaling t))
 
+(use-package proof-general
+  :ensure t
+  :custom
+  (proof-electric-terminator-enable t)
+  (proof-output-tooltips t)
+  (proof-three-window-mode-policy 'hybrid)
+  (coq-one-command-per-line nil))
+
+(use-package company-coq
+  :ensure t
+  :custom
+  (company-coq-disabled-features '(pretty-math-symbols
+                                   smart-subscripts
+                                   snippets
+                                   company))
+  (company-coq-live-on-the-edge t)
+  :config
+  (add-to-list 'completion-at-point-functions
+               (cape-company-to-capf #'company-coq-master-backend) t))
+
 (provide 'init)
 
 ;;; init.el ends here
