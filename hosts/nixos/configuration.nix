@@ -35,10 +35,6 @@
     zfs.devNodes = "/dev/";
   };
 
-  console = {
-    # font = "Lat2-Terminus16";
-    keyMap = "jp106";
-  };
   time.timeZone = "Asia/Tokyo";
 
   networking = {
@@ -60,26 +56,24 @@
         interval = "weekly";
       };
     };
-    xserver = {
-      enable = true;
-      displayManager.gdm = {
-        enable = true;
-        wayland = true;
-      };
-      desktopManager.gnome.enable = true;
-      extraLayouts.fast = {
-        description = "";
-        languages = [ "eng" "jpn" ];
-        symbolsFile = ./fastmap;
-      };
-    };
-    gnome = {
-      chrome-gnome-shell.enable = true;
-      core-developer-tools.enable = true;
-    };
     printing.enable = true;
     avahi.nssmdns = true;
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+      alsa.enable = true;
+    };
+    xserver = {
+      enable = true;
+      displayManager.startx.enable = true;
+    };
     flatpak.enable = true;
+  };
+
+  # Required by flatpak.
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   programs = {
@@ -95,12 +89,8 @@
     wireshark.enable = true;
   };
 
-  # Configure keymap in X11
-  # services.xserver.layout = "jp106";
-  # services.xserver.xkbOptions = "eurosign:e";
-
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.opengl.enable = true;
 
   users.users.noobuser = {
     isNormalUser = true;
@@ -108,11 +98,9 @@
   };
 
   environment = {
-    gnome.excludePackages = [ pkgs.gnome-builder ];
     systemPackages = with pkgs; [
       wget
       home-manager
-      chrome-gnome-shell
       ntfs3g
       cachix
       unzip
@@ -120,13 +108,7 @@
     # memoryAllocator.provider = "graphene-hardened";
   };
 
-  i18n = {
-    defaultLocale = "ja_JP.UTF-8";
-    inputMethod = {
-      enabled = "ibus";
-      ibus.engines = [ pkgs.ibus-engines.mozc ];
-    };
-  };
+  i18n.defaultLocale = "ja_JP.UTF-8";
 
   fonts.fonts = with pkgs; [
     noto-fonts-cjk-sans
