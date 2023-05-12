@@ -6,7 +6,6 @@
     ../noobuser/firefox
     ../noobuser/nushell.nix
     ../noobuser/fish.nix
-    ../noobuser/gnome.nix
     ../noobuser/emacs
 
     ../noobuser/vscode
@@ -28,49 +27,28 @@
     stateVersion = "21.11";
 
     packages = with pkgs; [
+      dconf
       android-tools
       wireshark
       inkscape
-      # sourcetrail
-      thunderbird-wayland
-      drawing
-      gnome-usage
 
-      tutanota-desktop
-      nemiver
-      icon-library
-      gitg
-      gtranslator
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      jetbrains-mono
       mold
       blueprint-compiler
       tor-browser-bundle-bin
       digikam
       virt-manager
-      fragments
       libreoffice
-      libsForQt5.qtstyleplugin-kvantum
-      bochs
-      geany
-      gnome-builder
-      newsflash
       darktable
       hdrmerge
       hugin
-      my.system-monitoring-center
-      my.dialect
       my.morisawa-biz-ud-gothic
       my.morisawa-biz-ud-mincho
       my.translate-locally-bin
       my.textadept-gtk3
-      hobbits
-      qalculate-gtk
       coq
       gnumake
-    ] ++ (with pkgs.gnome; [
-      gnome-todo
-      ghex
-    ]);
+    ];
   };
 
   programs = {

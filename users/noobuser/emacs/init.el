@@ -14,7 +14,7 @@
          ("M-h" . [C-backspace]))
   :custom
   (inhibit-startup-screen t)
-  (tool-bar-style 'image)
+  (tool-bar-mode nil)
   (scroll-step 1) ; Scroll line by line.
   (scroll-margin 15)
   (visible-bell t)
@@ -37,7 +37,7 @@
   :config
   (setq-default completion-ignore-case t) ; Non customize variable
   (set-face-attribute
-   'default nil :font "JetBrainsMono Nerd Font" :height 120))
+   'default nil :font "JetBrains Mono NL" :height 120))
 
 (use-package simple
   :custom
@@ -115,6 +115,61 @@
   :custom
   (auto-revert-interval 1)
   (global-auto-revert-mode t))
+
+(use-package tab-bar
+  :custom
+  (tab-bar-mode t)
+  (tab-bar-show nil))
+
+(use-package exwm
+  :ensure t
+  :hook (exwm-update-title
+          . (lambda () (exwm-workspace-rename-buffer exwm-title)))
+  :bind (:map exwm-mode-map
+         ("\C-q" . exwm-input-send-next-key))
+  :custom
+  (exwm-input-simulation-keys '(([?\C-b] . [left])
+                                ([?\M-b] . [C-left])
+                                ([?\C-f] . [right])
+                                ([?\M-f] . [C-right])
+                                ([?\C-p] . [up])
+                                ([?\C-n] . [down])
+                                ([?\C-a] . [home])
+                                ([?\C-e] . [end])
+                                ([?\M-v] . [prior])
+                                ([?\C-v] . [next])
+                                ([?\C-d] . [delete])
+                                ([?\M-d] . [C-S-right delete])
+                                ([?\C-h] . [backspace])
+                                ([?\M-h] . [C-S-left delete])
+                                ([?\C-k] . [S-end delete])
+                                ([?\C-w] . [?\C-x])
+                                ([?\M-w] . [?\C-c])
+                                ([?\C-y] . [?\C-v])
+                                ([?\C-s] . [?\C-f])))
+  :config
+  (push ?\C-\\ exwm-input-prefix-keys))
+
+(use-package exwm-systemtray
+  :config
+  (exwm-systemtray-enable))
+
+(use-package proced
+  :hook (proced-mode . nix-prettify-mode)
+  :custom
+  (proced-auto-update-flag t)
+  (proced-tree-flag t)
+  (proced-filter 'all))
+
+(use-package daemons
+  :ensure t)
+
+(use-package pipewire
+  :ensure t
+  :bind (("<XF86AudioRaiseVolume>" . pipewire-increase-volume)
+         ("<XF86AudioLowerVolume>" . pipewire-decrease-volume)
+         ("<XF86AudioMute>" . pipewire-toggle-muted)
+         ("<XF86AudioMicMute>" . pipewire-toggle-microphone)))
 
 (use-package paren
   :custom
