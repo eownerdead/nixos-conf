@@ -2,8 +2,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    (nixpkgs.outPath + "/nixos/modules/profiles/hardened.nix")
-
     ../common/enable-flake.nix
     ../common/auto-gc.nix
     ../common/doas.nix
@@ -23,12 +21,12 @@
   networking = {
     hostName = "home-server";
     useDHCP = false;
-    nameservers = [ "192.168.3.1" ];
-    defaultGateway = "192.168.3.1";
+    nameservers = [ "192.168.1.1" ];
+    defaultGateway = "192.168.1.1";
     interfaces = {
       "enp2s0".ipv4.addresses = [
         {
-          address = "192.168.3.100";
+          address = "192.168.1.100";
           prefixLength = 24;
         }
       ];

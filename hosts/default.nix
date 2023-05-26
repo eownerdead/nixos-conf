@@ -29,7 +29,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              specialExtraArgs = { inherit inputs; };
+              extraSpecialArgs = { inherit inputs; };
               users = {
                 noobuser = import (../. + "/users/noobuser@home-server");
               };
