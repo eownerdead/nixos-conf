@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1684783210,
+        "narHash": "sha256-hxRbwwBTu1G1u1EdI9nEo/n4HIsQIfNi+2BQ1nEoj/o=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "f0b9f374bb42fdcd57baa7d4448ac5d4788226bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1644229661,
@@ -88,11 +108,19 @@
     },
     "nur": {
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1685211399,
         "narHash": "sha256-5NQVl/80PoNi6CXufaifaDGYlOHyicujodhj8n6Duu0=",
         "owner": "nix-community",
         "repo": "NUR",
         "rev": "98079ce8a11b052ec6a325a4e9c98412dd1ae40b",
+=======
+        "lastModified": 1685267138,
+        "narHash": "sha256-EEcFwvOxP4eQJ4xiDJSwL7LaHsL43eSHX0naxaXzi5M=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "3fc82dd79202d19dd1aeac972a9c66ce2689fc1f",
+>>>>>>> home-tv
         "type": "github"
       },
       "original": {
@@ -123,6 +151,7 @@
     },
     "root": {
       "inputs": {
+        "disko": "disko",
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",
