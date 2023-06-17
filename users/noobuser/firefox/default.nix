@@ -17,6 +17,11 @@ in
     enable = true;
     package = pkgs.firefox-wayland;
     profiles.default = {
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        ublock-origin
+        violentmonkey
+        libredirect
+      ];
       userChrome = ''
         @import "firefox-gnome-theme/userChrome.css";
       '';
@@ -33,12 +38,6 @@ in
       extraConfig =
         arkenfox + gnome-theme-userjs + builtins.readFile ./user-overrides.js;
     };
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      ublock-origin
-      localcdn
-      violentmonkey
-      libredirect
-    ];
   };
 
   home.file."firefox-gnome-theme" = {
