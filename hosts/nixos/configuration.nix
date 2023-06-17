@@ -93,7 +93,7 @@
 
   users.users.noobuser = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "adbusers" ];
+    extraGroups = [ "wheel" "wireshark" "adbusers" ];
   };
 
   environment = {
