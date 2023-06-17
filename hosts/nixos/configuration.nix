@@ -40,8 +40,7 @@
   networking = {
     hostName = "nixos";
     hostId = "8556b001";
-    useDHCP = false;
-    interfaces.enp42s0.useDHCP = true;
+    networkmanager.enable = true;
   };
 
   services = {
