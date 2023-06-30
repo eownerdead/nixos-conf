@@ -6,6 +6,7 @@
     ../common/auto-gc.nix
     ../common/doas.nix
     ../common/nvidia.nix
+    ../common/doh.nix
   ];
 
   nix.settings = {
