@@ -76,6 +76,8 @@
       };
     };
 
+    snowflake-proxy.enable = true;
+
     ddclient = {
       enable = true;
       server = "update.dedyn.io";
