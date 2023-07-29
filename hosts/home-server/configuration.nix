@@ -96,6 +96,7 @@
 
     gitea = {
       enable = true;
+      package = pkgs.forgejo;
       # domain = "git.null.dedyn.io";
       database.type = "mysql";
     };
