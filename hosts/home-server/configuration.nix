@@ -5,6 +5,7 @@
     ../common/enable-flake.nix
     ../common/auto-gc.nix
     ../common/doas.nix
+    ../common/doh.nix
   ];
 
   nix = {
