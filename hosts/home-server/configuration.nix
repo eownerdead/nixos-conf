@@ -6,6 +6,8 @@
     ../common/auto-gc.nix
     ../common/doas.nix
     ../common/doh.nix
+
+    ../home-server/gitea.nix
   ];
 
   nix = {
@@ -79,29 +81,17 @@
 
     snowflake-proxy.enable = true;
 
-    ddclient = {
-      enable = true;
-      server = "update.dedyn.io";
-      username = "null.dedyn.io";
-      domains = [ "null.dedyn.io" ];
-      use = "cmd, cmd='${pkgs.curl}/bin/curl https://checkipv6.dedyn.io/'";
-      passwordFile = "/etc/dedyn_token";
-      ipv6 = true;
-    };
-
     nginx = {
       enable = true;
+      recommendedProxySettings = true;
+      recommendedOptimisation = true;
+      recommendedGzipSettings = true;
+      recommendedZstdSettings = true;
+      recommendedBrotliSettings = true;
       virtualHosts = {
-        "null.dedyn.io".basicAuthFile = "/etc/nginx/.htpasswd";
-        "git.null.dedyn.io".locations."/".proxyPass = "http://0.0.0.0:3000";
+        "null.dedyn.io" = { };
+        "www.null.dedyn.io" = { };
       };
-    };
-
-    gitea = {
-      enable = true;
-      package = pkgs.forgejo;
-      database.type = "mysql";
-      settings.service.DISABLE_REGISTRATION = true;
     };
   };
 
