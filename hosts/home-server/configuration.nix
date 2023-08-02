@@ -35,7 +35,8 @@
       ];
     };
     firewall.allowedTCPPorts = [
-      80 # nginx
+      80 # http
+      443 # https
       9418 # git
     ];
   };
@@ -90,7 +91,7 @@
       recommendedBrotliSettings = true;
       virtualHosts = {
         "null.dedyn.io" = { };
-        "www.null.dedyn.io" = { };
+        # "www.null.dedyn.io" = { };
       };
     };
   };
