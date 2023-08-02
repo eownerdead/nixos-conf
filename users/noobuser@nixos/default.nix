@@ -45,7 +45,6 @@
       my.morisawa-biz-ud-gothic
       my.morisawa-biz-ud-mincho
       my.translate-locally-bin
-      my.textadept-gtk3
       coq
       gnumake
       (isabelle.withComponents (p: [ p.isabelle-linter ]))
