@@ -19,6 +19,8 @@ in
       emacs-all-the-icons-fonts
     ];
     keyboard.options = [ "ctrl:nocaps" ];
+    # https://github.com/ch11ng/exwm/issues/822
+    sessionVariables._JAVA_AWT_WM_NONREPARENTING = "1";
   };
 
   programs.emacs = {
