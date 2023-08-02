@@ -5,10 +5,15 @@
   services = {
     nginx = {
       enable = true;
-      virtualHosts."git.null.dedyn.io".locations."/".extraConfig = ''
-        include ${config.services.nginx.package}/conf/fastcgi.conf;
-        fastcgi_pass unix:${config.services.gitea.settings.server.HTTP_ADDR};
-      '';
+      virtualHosts."git.null.dedyn.io" = {
+        onlySSL = true;
+        sslCertificate = "/var/null.dedyn.io.pem";
+        sslCertificateKey = "/var/null.dedyn.io.key";
+        locations."/".extraConfig = ''
+          include ${config.services.nginx.package}/conf/fastcgi.conf;
+          fastcgi_pass unix:${config.services.gitea.settings.server.HTTP_ADDR};
+        '';
+      };
     };
 
     gitea = {
@@ -17,7 +22,12 @@
       database.type = "mysql";
       settings = {
         service.DISABLE_REGISTRATION = true;
-        server.PROTOCOL = "fcgi+unix";
+        server = {
+          PROTOCOL = "fcgi+unix";
+          ROOT_URL = "https://git.null.dedyn.io/";
+          DISABLE_SSH = true;
+        };
+        federation.ENABLED = true;
       };
     };
   };
