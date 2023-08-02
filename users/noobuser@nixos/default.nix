@@ -48,6 +48,7 @@
       my.textadept-gtk3
       coq
       gnumake
+      (isabelle.withComponents (p: [ p.isabelle-linter ]))
     ];
   };
 
