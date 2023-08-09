@@ -2,8 +2,10 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../common/hardened.nix
     ../common/enable-flake.nix
     ../common/auto-gc.nix
+    ../common/global-pkgs.nix
     ../common/doas.nix
     ../common/nvidia.nix
     ../common/doh.nix
@@ -27,9 +29,6 @@
       };
       efi.canTouchEfiVariables = true;
     };
-    kernel.sysctl."kernel.unprivileged_userns_clone" = 1;
-    kernelPackages = pkgs.linuxPackages_hardened;
-
     plymouth.enable = true;
 
     supportedFilesystems = [ "zfs" ];
@@ -108,7 +107,6 @@
       unzip
       glib
     ];
-    # memoryAllocator.provider = "graphene-hardened";
   };
 
   i18n.defaultLocale = "ja_JP.UTF-8";
