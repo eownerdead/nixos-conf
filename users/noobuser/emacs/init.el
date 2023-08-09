@@ -15,6 +15,7 @@
   :custom
   (inhibit-startup-screen t)
   (tool-bar-mode nil)
+  (menu-bar-mode nil)
   (scroll-step 1) ; Scroll line by line.
   (scroll-margin 15)
   (visible-bell t)
@@ -148,7 +149,8 @@
                                 ([?\C-y] . [?\C-v])
                                 ([?\C-s] . [?\C-f])))
   :config
-  (push ?\C-\\ exwm-input-prefix-keys))
+  (push ?\C-\\ exwm-input-prefix-keys)
+  (exwm-enable))
 
 (use-package exwm-systemtray
   :config
