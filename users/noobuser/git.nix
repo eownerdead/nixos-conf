@@ -18,5 +18,9 @@
       st = "status";
       ll = "log --oneline";
     };
+    extraConfig.credential.helper = [
+      "cache"
+      "${pkgs.unstable.git-credential-oauth}/bin/git-credential-oauth"
+    ];
   };
 }

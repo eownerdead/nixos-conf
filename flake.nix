@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.05";
+    unstable.url = "nixpkgs/nixos-unstable";
     parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -31,6 +32,7 @@
           overlays = [
             inputs.nur.overlay
             (self: super: {
+              unstable = import inputs.unstable { inherit system; };
               my = import ./pkgs { pkgs = super; };
             })
           ];
