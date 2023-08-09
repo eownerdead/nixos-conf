@@ -192,19 +192,19 @@
   (global-hl-line-mode t))
 
 (use-package display-line-numbers
-  :hook (prog-mode conf-mode text-mode)
+  :hook ((prog-mode conf-mode text-mode) . display-line-numbers-mode)
   :custom
   (display-line-numbers-width 3))
 
 (use-package display-fill-column-indicator
-  :hook (prog-mode conf-mode text-mode)
+  :hook ((prog-mode conf-mode text-mode) . display-fill-column-indicator-mode)
   :custom
   (fill-column 80))
 
 ;; TODO: Fix conflict with whitespace-mode
 (use-package highlight-indent-guides
   :ensure t
-  :hook (prog-mode conf-mode text-mode))
+  :hook ((prog-mode conf-mode text-mode) . highlight-indent-guides-mode))
 
 (use-package subword
   :custom
@@ -310,7 +310,7 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :hook (prog-mode conf-mode))
+  :hook ((prog-mode conf-mode) . rainbow-delimiters-mode))
 
 (use-package project
   :hook (after-change-major-mode
@@ -388,7 +388,7 @@
 
 (use-package all-the-icons-dired
   :ensure t
-  :hook dired-mode)
+  :hook (dired-mode . all-the-icons-dired-mode))
 
 (use-package direnv
   :ensure t
