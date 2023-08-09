@@ -1,7 +1,7 @@
-# ❄️ EOWNERDEAD's NixOS Configuration ❄️
+# ❄️  EOWNERDEAD's NixOS Configuration ❄️
 ----------------------------------------
 
-#  Hosts
+# Hosts
 ## nixos
 * My main desktop.
 * Emacs
@@ -11,4 +11,8 @@
 * NGINX
 * Forgejo
 * Snowflake proxy
+
+# LICENSE
+[MIT-0](LICENSE)
+
 
