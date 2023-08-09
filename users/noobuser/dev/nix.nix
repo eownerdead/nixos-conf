@@ -13,6 +13,8 @@
     nix-output-monitor
     comma
     nix-tree
+    nurl
+    nix-init
   ];
 
   programs.nix-index = {
@@ -20,3 +22,4 @@
     enableBashIntegration = true;
   };
 }
+
