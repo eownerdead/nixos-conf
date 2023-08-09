@@ -116,7 +116,6 @@
   ];
 
   virtualisation = {
-    containers.storage.settings.storage.driver = "zfs";
     podman = {
       enable = true;
       dockerCompat = true;
