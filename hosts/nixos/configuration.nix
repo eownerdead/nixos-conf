@@ -77,18 +77,7 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  programs = {
-    git = {
-      enable = true;
-      config = {
-        user = {
-          email = "you@example.com";
-          name = "Your Name";
-        };
-      };
-    };
-    wireshark.enable = true;
-  };
+  programs.wireshark.enable = true;
 
   sound.enable = true;
   hardware.opengl.enable = true;
@@ -125,12 +114,5 @@
     waydroid.enable = true;
   };
 
-  system = {
-    stateVersion = "21.11";
-    autoUpgrade = {
-      enable = true;
-      flake = "/home/noobuser/nixos-conf";
-      flags = [ "--recreate-lock-file" "--commit-lock-file" ];
-    };
-  };
+  system.stateVersion = "21.11";
 }
