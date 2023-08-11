@@ -60,8 +60,6 @@
     memoryAllocator.provider = "libc";
   };
 
-  programs.git.enable = true;
-
   services = {
     openssh = {
       enable = true;
