@@ -46,7 +46,10 @@
       };
 
       flake = {
-        templates.default = { path = ./templates/default; };
+        templates.default = {
+          description = "Default Generic Template";
+          path = ./templates/default;
+        };
       };
     };
 }
