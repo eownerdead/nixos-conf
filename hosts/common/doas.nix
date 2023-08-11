@@ -6,5 +6,5 @@
     doas.enable = true;
   };
 
-  programs.bash.shellAliases.sudo = "doas";
+  environment.systemPackages = [ pkgs.doas-sudo-shim ];
 }
