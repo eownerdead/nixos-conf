@@ -5,7 +5,6 @@
     ../noobuser/git.nix
     ../noobuser/gpg.nix
     ../noobuser/firefox
-    ../noobuser/nushell.nix
     ../noobuser/fish.nix
     ../noobuser/emacs
 
