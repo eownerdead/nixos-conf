@@ -42,7 +42,18 @@
               "nvidia-settings"
             ];
         };
+
         formatter = pkgs.nixpkgs-fmt;
+
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            nixpkgs-fmt
+            editorconfig-checker
+            statix
+            nix-init
+            nurl
+          ];
+        };
       };
 
       flake = {
