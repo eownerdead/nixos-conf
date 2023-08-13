@@ -1,17 +1,17 @@
 { config, pkgs, nixpkgs, ... }:
 {
   imports = [
-    ./hardware-configuration.nix
     (import ./disko-config.nix {
       disk = "/dev/disk/by-id/ata-WDC_WD5000AAKX-60U6AA0_WD-WCC2E5PS4JDV";
     })
-
-    ../common/enable-flake.nix
-    ../common/auto-gc.nix
-    ../common/doas.nix
+    ./hardware-configuration.nix
+    ../../nixos
   ];
 
-  nix.settings.auto-optimise-store = true;
+  eownerdead = {
+    recommended = true;
+    sound = true;
+  };
 
   boot = {
     loader = {
@@ -34,7 +34,6 @@
 
   i18n.defaultLocale = "ja_JP.UTF-8";
 
-  sound.enable = true;
   hardware.opengl.enable = true;
 
   fonts = {
@@ -51,8 +50,6 @@
     wget
   ];
 
-  programs.git.enable = true;
-
   services = {
     printing.enable = true;
     avahi = {
@@ -63,11 +60,6 @@
         domain = true;
         addresses = true;
       };
-    };
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
     };
     xserver = {
       enable = true;

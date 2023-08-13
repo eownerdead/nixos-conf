@@ -46,6 +46,8 @@
       };
 
       flake = {
+        nixosModules.default = import ./nixos;
+
         templates.default = {
           description = "Default Generic Template";
           path = ./templates/default;

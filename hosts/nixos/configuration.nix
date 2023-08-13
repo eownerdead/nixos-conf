@@ -2,23 +2,16 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../nixos
     ../common/hardened.nix
-    ../common/enable-flake.nix
-    ../common/auto-gc.nix
-    ../common/global-pkgs.nix
-    ../common/doas.nix
-    ../common/nvidia.nix
-    ../common/doh.nix
   ];
 
-  nix.settings = {
-    auto-optimise-store = true;
-    substituters = [
-      "https://nix-community.cachix.org"
-    ];
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
+  eownerdead = {
+    recommended = true;
+    flatpak = true;
+    nvidia = true;
+    sound = true;
+    zfs = true;
   };
 
   boot = {
@@ -44,42 +37,18 @@
   };
 
   services = {
-    zfs = {
-      trim = {
-        enable = true;
-        interval = "monthly";
-      };
-      autoScrub = {
-        enable = true;
-        pools = [ "rpool" ];
-        interval = "weekly";
-      };
-    };
     printing.enable = true;
     avahi.nssmdns = true;
     udisks2.enable = true;
     gvfs.enable = true;
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
-    };
     xserver = {
       enable = true;
       displayManager.startx.enable = true;
     };
-    flatpak.enable = true;
-  };
-
-  # Required by flatpak.
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   programs.wireshark.enable = true;
 
-  sound.enable = true;
   hardware.opengl.enable = true;
 
   users.users.noobuser = {

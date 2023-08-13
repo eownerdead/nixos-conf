@@ -2,15 +2,14 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../common/enable-flake.nix
-    ../common/auto-gc.nix
-    ../common/doh.nix
+    ../../nixos
 
     ../home-server/gitea.nix
   ];
 
-  nix = {
-    settings.auto-optimise-store = true;
+  eownerdead = {
+    recommended = true;
+    doas = false;
   };
 
   boot.loader = {
