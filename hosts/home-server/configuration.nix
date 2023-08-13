@@ -4,7 +4,6 @@
     ./hardware-configuration.nix
     ../common/enable-flake.nix
     ../common/auto-gc.nix
-    ../common/doas.nix
     ../common/doh.nix
 
     ../home-server/gitea.nix
