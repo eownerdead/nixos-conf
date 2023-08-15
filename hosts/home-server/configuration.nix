@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../../nixos
 
+    ../home-server/nginx.nix
     ../home-server/gitea.nix
   ];
 
@@ -77,19 +78,6 @@
     };
 
     snowflake-proxy.enable = true;
-
-    nginx = {
-      enable = true;
-      recommendedProxySettings = true;
-      recommendedOptimisation = true;
-      recommendedGzipSettings = true;
-      recommendedZstdSettings = true;
-      recommendedBrotliSettings = true;
-      virtualHosts = {
-        "null.dedyn.io" = { };
-        # "www.null.dedyn.io" = { };
-      };
-    };
   };
 
   system.stateVersion = "22.05";

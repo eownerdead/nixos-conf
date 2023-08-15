@@ -6,9 +6,6 @@
     nginx = {
       enable = true;
       virtualHosts."git.null.dedyn.io" = {
-        onlySSL = true;
-        sslCertificate = "/var/null.dedyn.io.pem";
-        sslCertificateKey = "/var/null.dedyn.io.key";
         locations."/".extraConfig = ''
           include ${config.services.nginx.package}/conf/fastcgi.conf;
           fastcgi_pass unix:${config.services.gitea.settings.server.HTTP_ADDR};
