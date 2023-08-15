@@ -42,6 +42,7 @@
       coq
       gnumake
       (isabelle.withComponents (p: [ p.isabelle-linter ]))
+      anki
     ];
   };
 
