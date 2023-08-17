@@ -1,10 +1,10 @@
 { config, ... }:
 {
-  sops ={
-    age.sshKeyPaths = [];
+  sops = {
+    age.sshKeyPaths = [ ];
     gnupg = {
       home = config.home-manager.users.noobuser.programs.gpg.homedir;
-      sshKeyPaths = [];
+      sshKeyPaths = [ ];
     };
     secrets.noobuserPassword = {
       sopsFile = ../../users/noobuser/sops.yaml;
