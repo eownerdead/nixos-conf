@@ -1,0 +1,23 @@
+password: ENC[AES256_GCM,data:GV8U7/JMKmI=,iv:tClTKplU5jaIdLesfw33+ZRS2B0kn8EeWBIKxat5r6c=,tag:dW7apfazOW/VFMCYvwgjfg==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2023-08-15T14:57:06Z"
+    mac: ENC[AES256_GCM,data:df1e2+PEqdoO6jrQwqHGIALBc31l4D0Hv67r7Y5agmM/Say+mhfNawBwLCaK0u67ipAsqwnHh1atfdxTOG2Q6ECiNYzrH5/JJCSuMPqvVmDwp6FsbFbFTg85nAMC6pVml8BGz1SBBwb9aRh0/BjmaA6Ghvx6mbRL/mm6Is6+HBU=,iv:bxss7GJzOWKxLcOE/Qp/1BVxV9ftAFHt7mbsatLKlz8=,tag:Z/1ywakemyw3FOd+9IdUog==,type:str]
+    pgp:
+        - created_at: "2023-08-15T14:57:05Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DgDHWAi7eI1sSAQdAlU97+10Ctbo60BX5/E/F04rs7IruDDjbm8rcDmGE4V8w
+            ua5ohlIxNb63Ai1iOOq8EFnotUgQ14yX9BiWL17ysRC4fl3ykVhYVu/ye6Ok+aat
+            0l4BpoHeDXm7HOsUPFpx9c2SpSO5uzj8cgHPEp8e88Q5ulsLHBQccshw1OefEkW9
+            BH+8aRKi/8Cr+YgMuT2tXqIj6bA83O4gmYjA2PEP+Epux30W05kBddVzkqOaNgxQ
+            =REdE
+            -----END PGP MESSAGE-----
+          fp: 009E56305CA54D63
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
