@@ -54,7 +54,6 @@ in
 
   users.users.noobuser = {
     isNormalUser = true;
-    passwordFile = sops.noobuserPassword.path;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDsJtdiAF9RcIcXAH8KvB11Z8P2XoNaV0lIciF6uyhUz openpgp:0x65AF1035"
     ];
