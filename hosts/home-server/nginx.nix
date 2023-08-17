@@ -10,8 +10,8 @@ let
 in
 {
   sops.secrets = {
-    nullDedynIoCert = {};
-    nullDedynIoCertKey = {};
+    nullDedynIoCert.owner = config.services.nginx.user;
+    nullDedynIoCertKey.owner = config.services.nginx.user;
   };
 
   services.nginx = {
