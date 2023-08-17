@@ -1,8 +1,13 @@
 { config, pkgs, nixpkgs, ... }:
+let
+  sops = config.sops.secrets;
+in
 {
   imports = [
     ./hardware-configuration.nix
     ../../nixos
+
+    ../common/sops.nix
     ../common/hardened.nix
   ];
 
@@ -53,6 +58,7 @@
 
   users.users.noobuser = {
     isNormalUser = true;
+    passwordFile = sops.noobuserPassword.path;
     extraGroups = [ "wheel" "wireshark" "adbusers" ];
   };
 

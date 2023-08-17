@@ -1,12 +1,18 @@
 { config, pkgs, nixpkgs, ... }:
+let
+  sops = config.sops.secrets;
+in
 {
   imports = [
     ./hardware-configuration.nix
     ../../nixos
 
+    ../common/sops.nix
     ../home-server/nginx.nix
     ../home-server/gitea.nix
   ];
+
+  sops.defaultSopsFile = ./sops.yaml;
 
   eownerdead = {
     recommended = true;
@@ -48,6 +54,9 @@
 
   users.users.noobuser = {
     isNormalUser = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDsJtdiAF9RcIcXAH8KvB11Z8P2XoNaV0lIciF6uyhUz openpgp:0x65AF1035"
+    ];
     extraGroups = [ "wheel" ];
   };
 

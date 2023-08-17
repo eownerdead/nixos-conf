@@ -12,8 +12,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix.url = "github:Mic92/sops-nix";
     nur.url = "github:nix-community/NUR";
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +52,7 @@
             statix
             nix-init
             nurl
+            sops
           ];
         };
       };

@@ -3,6 +3,7 @@
   imports = [
     ../noobuser/cli.nix
     ../noobuser/git.nix
+    ../noobuser/gpg.nix
     ../noobuser/fish.nix
     ../noobuser/kodi.nix
 

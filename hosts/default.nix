@@ -6,6 +6,7 @@
         inherit system;
         specialArgs = { inherit pkgs inputs; };
         modules = [
+          inputs.sops-nix.nixosModules.sops
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -25,6 +26,7 @@
         specialArgs = { inherit pkgs inputs; };
         modules = [
           inputs.disko.nixosModules.disko
+          inputs.sops-nix.nixosModules.sops
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -44,6 +46,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit pkgs; };
         modules = [
+          inputs.sops-nix.nixosModules.sops
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {

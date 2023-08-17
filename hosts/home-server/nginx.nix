@@ -1,12 +1,19 @@
-{ ... }:
+{ config, ... }:
 let
+  sops = config.sops.secrets;
+
   sslConfig = {
     onlySSL = true;
-    sslCertificate = "/var/null.dedyn.io.pem";
-    sslCertificateKey = "/var/null.dedyn.io.key";
+    sslCertificate = sops.nullDedynIoCert.path;
+    sslCertificateKey = sops.nullDedynIoCertKey.path;
   };
 in
 {
+  sops.secrets = {
+    nullDedynIoCert.owner = config.services.nginx.user;
+    nullDedynIoCertKey.owner = config.services.nginx.user;
+  };
+
   services.nginx = {
     enable = true;
     recommendedProxySettings = true;

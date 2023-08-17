@@ -1,4 +1,7 @@
 { config, pkgs, nixpkgs, ... }:
+let
+  sops = config.sops.secrets;
+in
 {
   imports = [
     (import ./disko-config.nix {
@@ -6,6 +9,8 @@
     })
     ./hardware-configuration.nix
     ../../nixos
+
+    ../common/sops.nix
   ];
 
   eownerdead = {
@@ -43,6 +48,7 @@
 
   users.users.noobuser = {
     isNormalUser = true;
+    passwordFile = sops.noobuserPassword.path;
     extraGroups = [ "wheel" ];
   };
 
