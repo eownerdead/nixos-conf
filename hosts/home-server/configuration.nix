@@ -55,7 +55,7 @@ in
   users.users.noobuser = {
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDsJtdiAF9RcIcXAH8KvB11Z8P2XoNaV0lIciF6uyhUz openpgp:0x65AF1035"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBY59B9RvaQW314iSWSIi9EWO+J6aNWImXoeZyLwQzSC openpgp:0x5CA54D63"
     ];
     extraGroups = [ "wheel" ];
   };
