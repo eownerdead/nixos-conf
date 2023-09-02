@@ -8,8 +8,9 @@ in
     ../../nixos
 
     ../common/sops.nix
-    ../home-server/nginx.nix
-    ../home-server/gitea.nix
+    ./nginx.nix
+    ./gitea.nix
+    ./actions.nix
   ];
 
   sops.defaultSopsFile = ./sops.yaml;

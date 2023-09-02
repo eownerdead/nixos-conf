@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 {
-  # users.users."${config.services.nginx.user}".extraGroups = [ config.services.gitea.group ];
-
   services = {
     nginx = {
       enable = true;
@@ -24,6 +22,7 @@
           ROOT_URL = "https://git.null.dedyn.io/";
           DISABLE_SSH = true;
         };
+        indexer.REPO_INDEXER_ENABLED = true;
         federation.ENABLED = true;
       };
     };
