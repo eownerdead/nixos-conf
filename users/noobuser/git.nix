@@ -22,6 +22,7 @@ in
     };
     extraConfig = {
       include.path = "${gitAlias}";
+      init.defaultBranch = "main";
       commit.verbose = true;
       credential.helper = [
         "cache"
