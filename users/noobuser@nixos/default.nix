@@ -1,5 +1,4 @@
-{ lib, pkgs, inputs, ... }:
-{
+{ lib, pkgs, inputs, ... }: {
   imports = [
     ../noobuser/cli.nix
     ../noobuser/git.nix
@@ -47,9 +46,7 @@
   };
 
   programs = {
-    chromium = {
-      enable = true;
-    };
+    chromium = { enable = true; };
     home-manager.enable = true;
   };
 }

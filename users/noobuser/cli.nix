@@ -1,10 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = with pkgs; [
-    fortune
-    file
-    cheat
-  ];
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ fortune file cheat ];
 
   programs = {
     bash = {

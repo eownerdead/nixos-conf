@@ -1,8 +1,6 @@
 { config, pkgs, nixpkgs, ... }:
-let
-  sops = config.sops.secrets;
-in
-{
+let sops = config.sops.secrets;
+in {
   imports = [
     (import ./disko-config.nix {
       disk = "/dev/disk/by-id/ata-WDC_WD5000AAKX-60U6AA0_WD-WCC2E5PS4JDV";
@@ -52,9 +50,7 @@ in
     extraGroups = [ "wheel" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    wget
-  ];
+  environment.systemPackages = with pkgs; [ wget ];
 
   services = {
     printing.enable = true;

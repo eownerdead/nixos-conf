@@ -1,8 +1,6 @@
 { config, pkgs, nixpkgs, ... }:
-let
-  sops = config.sops.secrets;
-in
-{
+let sops = config.sops.secrets;
+in {
   imports = [
     ./hardware-configuration.nix
     ../../nixos
@@ -63,22 +61,12 @@ in
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      wget
-      home-manager
-      ntfs3g
-      cachix
-      unzip
-      glib
-    ];
+    systemPackages = with pkgs; [ wget home-manager ntfs3g cachix unzip glib ];
   };
 
   i18n.defaultLocale = "ja_JP.UTF-8";
 
-  fonts.fonts = with pkgs; [
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-  ];
+  fonts.fonts = with pkgs; [ noto-fonts-cjk-sans noto-fonts-cjk-serif ];
 
   virtualisation = {
     podman = {

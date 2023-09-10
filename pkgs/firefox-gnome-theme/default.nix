@@ -2,8 +2,7 @@
 let
   pname = "firefox-gnome-theme";
   version = "v108";
-in
-fetchFromGitHub {
+in fetchFromGitHub {
   name = "${pname}-${version}";
 
   owner = "rafaelmardojai";

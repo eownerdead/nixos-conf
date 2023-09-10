@@ -1,5 +1,4 @@
-{ self, inputs, withSystem, ... }:
-{
+{ self, inputs, withSystem, ... }: {
   flake.nixosConfigurations = {
     nixos = withSystem "x86_64-linux" ({ pkgs, system, ... }:
       inputs.nixpkgs.lib.nixosSystem rec {
@@ -39,7 +38,6 @@
           ./home-tv/configuration.nix
         ];
       });
-
 
     home-server = withSystem "x86_64-linux" ({ pkgs, system, ... }:
       inputs.nixpkgs.lib.nixosSystem rec {

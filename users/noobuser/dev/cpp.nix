@@ -1,9 +1,1 @@
-{ pkgs, ... }:
-{
-  home.packages = with pkgs; [
-    clang
-    clang-tools
-    lldb
-    bear
-  ];
-}
+{ pkgs, ... }: { home.packages = with pkgs; [ clang clang-tools lldb bear ]; }

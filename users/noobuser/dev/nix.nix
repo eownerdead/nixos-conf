@@ -1,12 +1,9 @@
-{ pkgs, inputs, ... }:
-{
-  imports = [
-    inputs.nix-index-database.hmModules.nix-index
-  ];
+{ pkgs, inputs, ... }: {
+  imports = [ inputs.nix-index-database.hmModules.nix-index ];
 
   home.packages = with pkgs; [
     rnix-lsp
-    nixpkgs-fmt
+    nixfmt
     statix
     hydra-check
     cached-nix-shell

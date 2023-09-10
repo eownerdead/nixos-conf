@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{ config, ... }: {
   sops = {
     age.sshKeyPaths = [ ];
     gnupg = {

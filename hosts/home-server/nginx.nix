@@ -7,8 +7,7 @@ let
     sslCertificate = sops.nullDedynIoCert.path;
     sslCertificateKey = sops.nullDedynIoCertKey.path;
   };
-in
-{
+in {
   sops.secrets = {
     nullDedynIoCert.owner = config.services.nginx.user;
     nullDedynIoCertKey.owner = config.services.nginx.user;

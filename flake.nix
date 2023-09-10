@@ -43,11 +43,11 @@
             ];
         };
 
-        formatter = pkgs.nixpkgs-fmt;
+        formatter = pkgs.nixfmt;
 
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            nixpkgs-fmt
+            nixfmt
             editorconfig-checker
             statix
             nix-init

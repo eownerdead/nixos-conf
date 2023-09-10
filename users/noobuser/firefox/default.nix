@@ -9,8 +9,7 @@ let
 
   gnome-theme-userjs =
     builtins.readFile "${pkgs.my.firefox-gnome-theme}/configuration/user.js";
-in
-{
+in {
   # https://discourse.nixos.org/t/anyone-using-firefox-gnome-theme-successfully-with-nixos-home-manager/19248
 
   programs.firefox = {
@@ -35,8 +34,8 @@ in
         "browser.tabs.tabmanager.enabled" = false;
         "intl.locale.requested" = "ja,en-US";
       };
-      extraConfig =
-        arkenfox + gnome-theme-userjs + builtins.readFile ./user-overrides.js;
+      extraConfig = arkenfox + gnome-theme-userjs
+        + builtins.readFile ./user-overrides.js;
     };
   };
 

@@ -4,14 +4,12 @@ stdenv.mkDerivation rec {
   version = "0.0.2+136745e";
 
   src = fetchurl {
-    url = "https://github.com/XapaJIaMnu/translateLocally/releases/download/latest/translateLocally-v${version}-Ubuntu-20.04.AVX.deb";
+    url =
+      "https://github.com/XapaJIaMnu/translateLocally/releases/download/latest/translateLocally-v${version}-Ubuntu-20.04.AVX.deb";
     sha256 = "sha256-8UJyQKsEnvzGnoLuJp0hYnQ0Z1oNvgH+MMI4/z0N6+8=";
   };
 
-  nativeBuildInputs = [
-    dpkg
-    libsForQt5.wrapQtAppsHook
-  ];
+  nativeBuildInputs = [ dpkg libsForQt5.wrapQtAppsHook ];
 
   sourceRoot = ".";
 
@@ -28,19 +26,13 @@ stdenv.mkDerivation rec {
       $out/share/icons/hicolor/scalable/apps/
   '';
 
-  preFixup =
-    let
-      libPath = lib.makeLibraryPath [
-        libarchive
-        qt5.qtbase
-        qt5.qtsvg
-        stdenv.cc.cc.lib
-      ];
-    in
-    ''
-      patchelf \
-        --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
-        --set-rpath "${libPath}" \
-        $out/bin/translateLocally
-    '';
+  preFixup = let
+    libPath =
+      lib.makeLibraryPath [ libarchive qt5.qtbase qt5.qtsvg stdenv.cc.cc.lib ];
+  in ''
+    patchelf \
+      --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+      --set-rpath "${libPath}" \
+      $out/bin/translateLocally
+  '';
 }
