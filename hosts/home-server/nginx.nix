@@ -4,13 +4,13 @@ let
 
   sslConfig = {
     onlySSL = true;
-    sslCertificate = sops.nullDedynIoCert.path;
-    sslCertificateKey = sops.nullDedynIoCertKey.path;
+    sslCertificate = sops.eownerdeadDedynIoCert.path;
+    sslCertificateKey = sops.eownerdeadDedynIoCertKey.path;
   };
 in {
   sops.secrets = {
-    nullDedynIoCert.owner = config.services.nginx.user;
-    nullDedynIoCertKey.owner = config.services.nginx.user;
+    eownerdeadDedynIoCert.owner = config.services.nginx.user;
+    eownerdeadDedynIoCertKey.owner = config.services.nginx.user;
   };
 
   services.nginx = {
@@ -21,13 +21,13 @@ in {
     recommendedZstdSettings = true;
     recommendedBrotliSettings = true;
     virtualHosts = {
-      "null.dedyn.io" = sslConfig // {
+      "eownerdead.dedyn.io" = sslConfig // {
         locations."/".root = ./www.null.dedyn.io;
       };
-      "www.null.dedyn.io" = sslConfig // {
+      "www.eownerdead.dedyn.io" = sslConfig // {
         locations."/".root = ./www.null.dedyn.io;
       };
-      "git.null.dedyn.io" = sslConfig;
+      "git.eownerdead.dedyn.io" = sslConfig;
     };
   };
 }

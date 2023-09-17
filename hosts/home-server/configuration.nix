@@ -37,7 +37,6 @@ in {
       }];
     };
     firewall.allowedTCPPorts = [
-      80 # http
       443 # https
       9418 # git
     ];

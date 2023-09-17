@@ -7,7 +7,7 @@
 * [Emacs](https://www.gnu.org/software/emacs)
 * [EXWM](https://github.com/ch11ng/exwm)
 ## home-server
-* Serving https://www.null.dedyn.io via [Cloudflare](https://www.cloudflare.com)
+* Serving https://www.eownerdead.dedyn.io via [Cloudflare](https://www.cloudflare.com)
 * [NGINX](https://nginx.org/en)
 * [Forgejo](https://forgejo.org)
 * [Snowflake proxy](https://snowflake.torproject.org)
