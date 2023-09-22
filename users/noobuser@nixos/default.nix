@@ -37,7 +37,6 @@
       hugin
       my.morisawa-biz-ud-gothic
       my.morisawa-biz-ud-mincho
-      my.translate-locally-bin
       coq
       gnumake
       (isabelle.withComponents (p: [ p.isabelle-linter ]))
