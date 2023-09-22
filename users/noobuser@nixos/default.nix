@@ -3,7 +3,7 @@
     ../noobuser/cli.nix
     ../noobuser/git.nix
     ../noobuser/gpg.nix
-    ../noobuser/firefox
+    ../noobuser/firefox.nix
     ../noobuser/fish.nix
     ../noobuser/emacs
 
