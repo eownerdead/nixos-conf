@@ -2,7 +2,7 @@
   sops = {
     age.sshKeyPaths = [ ];
     gnupg = {
-      home = config.home-manager.users.noobuser.programs.gpg.homedir;
+      home = "/var/lib/sops";
       sshKeyPaths = [ ];
     };
     secrets.noobuserPassword = {
@@ -12,4 +12,3 @@
     };
   };
 }
-
