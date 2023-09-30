@@ -1,17 +1,23 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 let
   sops = config.sops.secrets;
 
-  sslConfig = {
+  cfCert = pkgs.fetchurl {
+    url = "https://developers.cloudflare.com/ssl/static/authenticated_origin_pull_ca.pem";
+    hash = "sha256-wU/tDOUhDbBxn+oR0fELM3UNwX1gmur0fHXp7/DXuEM=";
+  };
+
+  cfSSLConfig = {
     onlySSL = true;
-    sslCertificate = sops.eownerdeadDedynIoCert.path;
+    sslCertificate = ./eownerdead.dedyn.io.pem;
     sslCertificateKey = sops.eownerdeadDedynIoCertKey.path;
+    extraConfig = ''
+      ssl_client_certificate ${cfCert};
+      ssl_verify_client on;
+    '';
   };
 in {
-  sops.secrets = {
-    eownerdeadDedynIoCert.owner = config.services.nginx.user;
-    eownerdeadDedynIoCertKey.owner = config.services.nginx.user;
-  };
+  sops.secrets.eownerdeadDedynIoCertKey.owner = config.services.nginx.user;
 
   services.nginx = {
     enable = true;
@@ -21,13 +27,13 @@ in {
     recommendedZstdSettings = true;
     recommendedBrotliSettings = true;
     virtualHosts = {
-      "eownerdead.dedyn.io" = sslConfig // {
+      "eownerdead.dedyn.io" = cfSSLConfig // {
         locations."/".root = ./www.null.dedyn.io;
       };
-      "www.eownerdead.dedyn.io" = sslConfig // {
+      "www.eownerdead.dedyn.io" = cfSSLConfig // {
         locations."/".root = ./www.null.dedyn.io;
       };
-      "git.eownerdead.dedyn.io" = sslConfig;
+      "git.eownerdead.dedyn.io" = cfSSLConfig;
     };
   };
 }
