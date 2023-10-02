@@ -3,7 +3,8 @@ let
   sops = config.sops.secrets;
 
   cfCert = pkgs.fetchurl {
-    url = "https://developers.cloudflare.com/ssl/static/authenticated_origin_pull_ca.pem";
+    url =
+      "https://developers.cloudflare.com/ssl/static/authenticated_origin_pull_ca.pem";
     hash = "sha256-wU/tDOUhDbBxn+oR0fELM3UNwX1gmur0fHXp7/DXuEM=";
   };
 
@@ -26,6 +27,7 @@ in {
     recommendedGzipSettings = true;
     recommendedZstdSettings = true;
     recommendedBrotliSettings = true;
+    additionalModules = with pkgs.nginxModules; [ dav ];
     virtualHosts = {
       "eownerdead.dedyn.io" = cfSSLConfig // {
         locations."/".root = ./www.null.dedyn.io;
@@ -34,6 +36,8 @@ in {
         locations."/".root = ./www.null.dedyn.io;
       };
       "git.eownerdead.dedyn.io" = cfSSLConfig;
+      "libretranslate.eownerdead.dedyn.io" = cfSSLConfig;
     };
+    enableReload = true;
   };
 }

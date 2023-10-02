@@ -9,6 +9,7 @@ in {
     ./nginx.nix
     ./gitea.nix
     ./actions.nix
+    ./libretranslate.nix
   ];
 
   sops.defaultSopsFile = ./sops.yaml;
