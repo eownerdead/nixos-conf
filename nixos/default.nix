@@ -20,6 +20,10 @@ with lib; {
       encryptedDns = mkDefault true;
       nix = mkDefault true;
     };
+
+    users.mutableUsers = false;
+
+    services.envfs.enable = true;
   };
 }
 
