@@ -26,8 +26,6 @@
       gimp
       inkscape
       jetbrains-mono
-      mold
-      blueprint-compiler
       tor-browser-bundle-bin
       digikam
       virt-manager
@@ -38,7 +36,6 @@
       my.morisawa-biz-ud-gothic
       my.morisawa-biz-ud-mincho
       coq
-      gnumake
       (isabelle.withComponents (p: [ p.isabelle-linter ]))
       anki
     ];

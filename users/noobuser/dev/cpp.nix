@@ -1,1 +1,3 @@
-{ pkgs, ... }: { home.packages = with pkgs; [ clang clang-tools lldb bear ]; }
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ gnumake clang clang-tools lldb mold bear ];
+}
