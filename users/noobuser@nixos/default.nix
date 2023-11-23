@@ -23,8 +23,8 @@
       dconf
       android-tools
       wireshark
+      gimp
       inkscape
-
       jetbrains-mono
       mold
       blueprint-compiler
