@@ -6,6 +6,7 @@ in {
     ../../nixos
 
     ../common/sops.nix
+    ../common/global-pkgs.nix
     ../common/hardened.nix
   ];
 
