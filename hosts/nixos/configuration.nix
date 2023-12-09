@@ -27,8 +27,8 @@ in {
     };
     plymouth.enable = true;
 
-    supportedFilesystems = [ "zfs" ];
-    zfs.devNodes = "/dev/";
+    supportedFilesystems = [ "btrfs" "exfat" "ext4" "ntfs" "vfat" "xfs" "zfs" ];
+    kernelModules = [ "btrfs" "exfat" "ext4" "ntfs3" "vfat" "xfs" ];
   };
 
   time.timeZone = "Asia/Tokyo";
