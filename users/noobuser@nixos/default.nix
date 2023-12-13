@@ -38,6 +38,7 @@
       coq
       (isabelle.withComponents (p: [ p.isabelle-linter ]))
       anki
+      tigervnc
     ];
   };
 

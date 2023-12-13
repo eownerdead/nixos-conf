@@ -41,8 +41,24 @@ in {
   };
 
   services = {
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+        X11Forwarding = true;
+      };
+    };
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        workstation = true;
+      };
+    };
     printing.enable = true;
-    avahi.nssmdns = true;
     udisks2.enable = true;
     gvfs.enable = true;
     xserver = {
@@ -58,6 +74,10 @@ in {
   users.users.noobuser = {
     isNormalUser = true;
     passwordFile = sops.noobuserPassword.path;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBY59B9RvaQW314iSWSIi9EWO+J6aNWImXoeZyLwQzSC openpgp:0x5CA54D63"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN5bTpOOFrIF3IqOZqUsJUTziQduAzXOpNfsFM4Yat8F a@DESKTOP-R9IE7K2"
+    ];
     extraGroups = [ "wheel" "wireshark" "adbusers" ];
   };
 
