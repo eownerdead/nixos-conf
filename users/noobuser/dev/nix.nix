@@ -2,7 +2,7 @@
   imports = [ inputs.nix-index-database.hmModules.nix-index ];
 
   home.packages = with pkgs; [
-    rnix-lsp
+    nixd
     nixfmt
     statix
     hydra-check

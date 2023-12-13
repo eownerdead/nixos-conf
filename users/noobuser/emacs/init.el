@@ -345,10 +345,7 @@
   :config
   (setq-default eglot-stay-out-of '(flymake-diagnostic-functions
                                     eldoc-documentation-strategy))
-  (add-to-list 'eglot-server-programs
-               '(python-mode . ("pyright-langserver" "--stdio"
-                                :initializationOptions
-                                (:pyright (:typeCheckingMode "off"))))))
+  (add-to-list 'eglot-server-programs '(nix-mode . ("nixd"))))
 
 (use-package eglot-tempel)
 
