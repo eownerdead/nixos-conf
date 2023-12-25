@@ -1,6 +1,7 @@
 { trivialBuild, fetchFromGitHub, eglot, tempel }:
 trivialBuild rec {
   pname = "eglot-tempel";
+  version = "master";
 
   src = fetchFromGitHub {
     owner = "fejfighter";
