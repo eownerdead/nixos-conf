@@ -40,9 +40,12 @@ with lib; {
 
       config = (mkIf config.eownerdead.binaryCaches {
         nix.settings = {
+          trusted-users = [ "@wheel" ];
+          trusted-substituters = [ "https://ai.cachix.org" ];
           substituters = [ "https://nix-community.cachix.org" ];
           trusted-public-keys = [
             "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+            "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
           ];
         };
       });

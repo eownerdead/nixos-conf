@@ -5,7 +5,7 @@ in {
 
   services = {
     gitea-actions-runner = {
-      package = pkgs.unstable.forgejo-actions-runner;
+      package = pkgs.forgejo-actions-runner;
       instances.codebergOrg = {
         enable = true;
         url = "https://codeberg.org";
@@ -16,11 +16,7 @@ in {
     };
   };
 
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    autoPrune.enable = true;
-  };
+  virtualisation.podman.enable = true;
 
   # https://blog.kotatsu.dev/posts/2023-04-21-woodpecker-nix-caching/
   virtualisation.podman.defaultNetwork.settings.dns_enable = true;

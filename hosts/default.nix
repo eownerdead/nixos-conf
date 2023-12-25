@@ -7,6 +7,7 @@
         modules = [
           inputs.sops-nix.nixosModules.sops
           inputs.home-manager.nixosModules.home-manager
+          inputs.ai.nixosModules.textgen-nvidia
           {
             home-manager = {
               useGlobalPkgs = true;

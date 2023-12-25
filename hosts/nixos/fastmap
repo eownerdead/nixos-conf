@@ -1,7 +1,0 @@
-partial modifier_keys
-xkb_symbols "fastmap" {
-    key <MUHE> { [ Left ] };
-    key <HENK> { [ Right ] };
-    replace key <LCTL>  { [ Caps_Lock ] };
-    replace key <CAPS> { [ Control_L ] };
-};

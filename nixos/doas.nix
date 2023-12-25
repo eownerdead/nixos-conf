@@ -9,7 +9,10 @@ with lib; {
   config = mkIf config.eownerdead.doas {
     security = {
       sudo.enable = mkDefault false;
-      doas.enable = mkDefault true;
+      doas = {
+        enable = mkDefault true;
+        extraRules = [ { groups = [ "wheel" ]; persist = true; } ];
+      };
     };
 
     environment.systemPackages = [ pkgs.doas-sudo-shim ];

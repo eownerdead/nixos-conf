@@ -19,6 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database.url = "github:Mic92/nix-index-database";
+    ai.url = "/home/noobuser/src/nixified-ai";
   };
 
   outputs = inputs@{ self, parts, ... }:
@@ -34,6 +35,7 @@
             (self: super: {
               unstable = import inputs.unstable { inherit system; };
               my = import ./pkgs { pkgs = super; };
+              ai = inputs.ai.packages.${system};
             })
           ];
           config.allowUnfreePredicate = pkg:
@@ -60,6 +62,17 @@
       };
 
       flake = {
+        nixosConfig ={
+          substituters = [
+            "https://nix-community.cachix.org"
+            "https://ai.cachix.org"
+          ];
+          trusted-public-keys = [
+            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+            "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
+          ];
+        };
+
         nixosModules.default = import ./nixos;
 
         templates.default = {
