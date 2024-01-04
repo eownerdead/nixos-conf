@@ -43,7 +43,14 @@
   };
 
   programs = {
-    chromium = { enable = true; };
+    chromium = {
+      enable = true;
+      package = pkgs.ungoogled-chromium;
+      # https://github.com/NixOS/nixpkgs/issues/158449
+      extensions = [{
+        id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; # uBlock Origin
+      }];
+    };
     home-manager.enable = true;
   };
 }
