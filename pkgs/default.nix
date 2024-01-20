@@ -1,8 +1,4 @@
-{ pkgs, ... }:
-with pkgs; {
-  morisawa-biz-ud-gothic = callPackage ./morisawa-biz-ud-gothic { };
-  morisawa-biz-ud-mincho = callPackage ./morisawa-biz-ud-mincho { };
-  translate-locally-bin = callPackage ./translate-locally-bin { };
-  firefox-gnome-theme = callPackage ./firefox-gnome-theme { };
-  emacsPackages = import ./elisp-packages { inherit pkgs; };
-}
+{ pkgs }:
+let inherit (pkgs) lib;
+in lib.mapAttrs (name: ty: pkgs.callPackage ./${name}/package.nix { })
+(lib.filterAttrs (name: ty: ty == "directory") (builtins.readDir ./.))
