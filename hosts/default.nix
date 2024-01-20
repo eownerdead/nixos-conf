@@ -5,6 +5,7 @@
         inherit system;
         specialArgs = { inherit pkgs inputs; };
         modules = [
+          inputs.self.nixosModules.eownerdead
           inputs.sops-nix.nixosModules.sops
           inputs.home-manager.nixosModules.home-manager
           inputs.ai.nixosModules.textgen-nvidia

@@ -1,9 +1,8 @@
-{ config, pkgs, nixpkgs, ... }:
+{ config, pkgs, nixpkgs, inputs, ... }:
 let sops = config.sops.secrets;
 in {
   imports = [
     ./hardware-configuration.nix
-    ../../nixos
 
     ../common/sops.nix
     ../common/global-pkgs.nix

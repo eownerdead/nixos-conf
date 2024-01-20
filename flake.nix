@@ -23,7 +23,7 @@
   };
 
   outputs = inputs@{ self, parts, ... }:
-    parts.lib.mkFlake { inherit inputs; } {
+    parts.lib.mkFlake { inherit inputs; } rec {
       imports = [ ./hosts ];
       systems = [ "x86_64-linux" ];
 
@@ -62,22 +62,32 @@
       };
 
       flake = {
-        nixosConfig ={
-          substituters = [
-            "https://nix-community.cachix.org"
-            "https://ai.cachix.org"
-          ];
+        nixosConfig = {
+          substituters =
+            [ "https://nix-community.cachix.org" "https://ai.cachix.org" ];
           trusted-public-keys = [
             "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
             "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
           ];
         };
 
-        nixosModules.default = import ./nixos;
+        nixosModules = rec {
+          eownerdead = import ./nixos;
+          default = eownerdead;
+        };
 
         templates.default = {
           description = "Default Generic Template";
           path = ./templates/default;
+        };
+
+        modules = flake.nixosModules;
+
+        overlays = rec {
+          eownerdead = self: super: {
+            eownerdead = import ./pkgs { pkgs = super; };
+          };
+          default = eownerdead;
         };
       };
     };
