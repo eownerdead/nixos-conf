@@ -9,18 +9,17 @@
         "textgen-src": "textgen-src"
       },
       "locked": {
-        "dirtyRev": "63339e4c8727578a0fe0f2c63865f60b6e800079-dirty",
-        "dirtyShortRev": "63339e4-dirty",
-        "lastModified": 1701304375,
-        "narHash": "sha256-qXyUMucJeQGbWAyKMv6Mw9xMOE+iHK9XZII/xtLPB3w=",
-        "shallow": true,
-        "type": "git",
-        "url": "file:///home/noobuser/src/nixified-ai"
+        "lastModified": 1703280132,
+        "narHash": "sha256-iB/AQpgnjv5mZzbnQ3eqbyLJZhOmQApO8oBDzeefrz4=",
+        "owner": "eownerdead",
+        "repo": "nixified-ai",
+        "rev": "82a612a260fa301ca6d67b4bb3999e53ae2a2412",
+        "type": "github"
       },
       "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "file:///home/noobuser/src/nixified-ai"
+        "owner": "eownerdead",
+        "repo": "nixified-ai",
+        "type": "github"
       }
     },
     "disko": {

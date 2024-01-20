@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database.url = "github:Mic92/nix-index-database";
-    ai.url = "/home/noobuser/src/nixified-ai";
+    ai.url = "github:eownerdead/nixified-ai";
   };
 
   outputs = inputs@{ self, parts, ... }:
