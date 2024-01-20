@@ -9,6 +9,7 @@
 
     ../noobuser/dev/nix.nix
     ../noobuser/dev/py.nix
+    ../noobuser/dev/web.nix
     ../noobuser/dev/cpp.nix
     ../noobuser/dev/rs.nix
     ../noobuser/dev/hs.nix
