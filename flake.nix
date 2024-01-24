@@ -47,7 +47,7 @@
 
         formatter = pkgs.nixfmt;
 
-        packages = pkgs.my;
+        packages = import ./pkgs { inherit pkgs; };
 
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
@@ -71,6 +71,13 @@
           ];
         };
 
+        overlays = rec {
+          eownerdead = self: super: {
+            eownerdead = import ./pkgs { pkgs = super; };
+          };
+          default = eownerdead;
+        };
+
         nixosModules = rec {
           eownerdead = import ./nixos;
           default = eownerdead;
@@ -79,15 +86,6 @@
         templates.default = {
           description = "Default Generic Template";
           path = ./templates/default;
-        };
-
-        modules = flake.nixosModules;
-
-        overlays = rec {
-          eownerdead = self: super: {
-            eownerdead = import ./pkgs { pkgs = super; };
-          };
-          default = eownerdead;
         };
       };
     };
