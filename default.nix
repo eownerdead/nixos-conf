@@ -1,7 +1,9 @@
 # Packages for NUR
-{ flake ? builtins.getFlake (toString ./.)
-, pkgs ? flake.inputs.nixpkgs { } }:
-flake.packages // {
+{ pkgs ? import <nixpkgs> { } }:
+let
+  flake = builtins.getFlake (toString ./.);
+  inherit (pkgs) system;
+in flake.packages."${system}" // {
   modules = flake.nixosModules.default;
   overlays = flake.overlays.default;
 }
