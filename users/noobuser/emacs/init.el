@@ -407,6 +407,13 @@
   :config
   (all-the-icons-completion-mode))
 
+(use-package shell
+  :bind (([remap shell] . new-shell))
+  :config
+  (defun new-shell ()
+    (interactive)
+    (shell (generate-new-buffer "*shell*"))))
+
 (use-package bash-completion
   :ensure t
   :functions eshell-bol
@@ -419,6 +426,12 @@
     (bash-completion-dynamic-complete-nocomint
      (save-excursion (eshell-bol) (point))
      (point) t)))
+
+(use-package coterm
+  :ensure t
+  :bind ("C-;" . coterm-char-mode-cycle)
+  :config
+  (coterm-mode))
 
 (use-package eshell
   :hook (eshell-mode . bash-completion-from-eshell)
