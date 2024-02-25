@@ -258,7 +258,10 @@
   (corfu-auto-delay 0.)
   (corfu-auto t))
 
-(use-package corfu-info)
+(use-package corfu-echo
+  :hook (corfu-mode . corfu-echo-mode)
+  :custom
+  (corfu-echo-delay nil))
 
 (use-package kind-icon
   :ensure t
