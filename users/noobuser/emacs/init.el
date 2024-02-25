@@ -362,7 +362,10 @@
   (dired-recursive-deletes 'always) ;; Don't confirm.
   (dired-recursive-copies 'always)
   (dired-dwim-target t)
+  (dired-find-subdir t)
   (dired-kill-when-opening-new-dired-buffer t))
+
+(use-package dired-x)
 
 (use-package dired-subtree
   :ensure t
@@ -376,7 +379,9 @@
 
 (use-package all-the-icons-dired
   :ensure t
-  :hook (dired-mode . all-the-icons-dired-mode))
+  :hook (dired-mode . all-the-icons-dired-mode)
+  :custom
+  (all-the-icons-dired-monochrome nil))
 
 (use-package direnv
   :ensure t
