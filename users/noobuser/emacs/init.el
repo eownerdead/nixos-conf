@@ -398,6 +398,18 @@
   :custom
   (fido-vertical-mode 1))
 
+(use-package embark
+  :ensure t
+  :bind (("C-." . embark-act)
+         ("C-;" . embark-dwim))
+  :init
+  (setq prefix-help-command #'embark-prefix-help-command))
+
+(use-package embark-consult
+  :ensure t
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+
 (use-package consult
   :ensure t
   :bind (([remap switch-to-buffer] . consult-buffer)
