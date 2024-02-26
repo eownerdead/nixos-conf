@@ -388,7 +388,14 @@
          ([remap bookmark-jump] . consult-bookmark)
          ([remap project-switch-to-buffer] . consult-project-buffer)
          ([remap yank-pop] . consult-yank-pop)
-         ([remap goto-line] . consult-goto-line)))
+         ([remap goto-line] . consult-goto-line)
+         ("M-g f" . consult-flymake)
+         ("M-g m" . consult-mark)
+         ("M-g i" . consult-imenu)
+         ("M-g I" . consult-imenu-multi))
+  :init
+  (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref))
 
 (use-package marginalia
   :ensure t
