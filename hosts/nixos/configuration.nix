@@ -92,6 +92,12 @@ in {
       settings = { dark_theme = false; };
       extraArgs = [ "--api" ];
     };
+    kubo = {
+      enable = true;
+      enableGC = true;
+      autoMount = true;
+      localDiscovery = true;
+    };
   };
 
   programs.wireshark.enable = true;
