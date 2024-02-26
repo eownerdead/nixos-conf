@@ -490,14 +490,8 @@
   :ensure t
   :hook (nix-mode . eglot-ensure)
   :custom
-  (nix-indent-function #'nix-indent-line))
-
-(use-package company-nixos-options
-  :ensure t
-  :hook (nix-mode . company-nixos-options)
-  :config
-  (add-to-list 'completion-at-point-functions
-               (cape-company-to-capf #'company-nixos-options) t))
+  (nix-indent-function #'nix-indent-line)
+  (nix-repl-executable-args '("repl" "--show-trace")))
 
 (use-package haskell-mode
   :ensure t
