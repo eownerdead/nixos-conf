@@ -1,23 +1,59 @@
 * {
   font-family: sans-serif;
+  box-sizing: border-box; /* make css sane! */
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: black;
-  padding: 16px;
-}
-
-.logo {
-  color: white;
+body {
   margin: 0;
 }
 
-.services {
-  margin: 128px 32px 32px 32px;
+:root {
+  --bg-color: white;
+  --main-color: #D84315;
+  --box-border-color: #BDBDBD;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  color: var(--main-color);
+  background: var(--bg-color);
+  border-bottom: solid 1px var(--box-border-color);
+}
+
+main {
+  margin: 0 32px 0 32px;
+}
+
+.a-normal, .service {
+  text-decoration: inherit;
+}
+
+.a-normal:visited, service:visited {
+  color: inherit;
+}
+
+.box {
+  padding: 8px;
+  /* border: solid 1px var(--box-border-color); */
+  border-radius: 8px;
+  display: inline-flex;
+}
+
+.box:hover {
+  background: ;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.17em;
+}
+
+.logo:visited {
+  color: inherit;
 }
 
 .service {
@@ -29,7 +65,6 @@ header {
   justify-items: center;
 }
 
-.service:hover {
-  background: #FBE9E7;
-  border-radius: 8px;
+.service:visited {
+  color: inherit;
 }
