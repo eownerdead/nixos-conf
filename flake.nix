@@ -20,6 +20,10 @@
     };
     nix-index-database.url = "github:Mic92/nix-index-database";
     ai.url = "github:eownerdead/nixified-ai";
+    docker-nixpkgs = {
+      url = "github:nix-community/docker-nixpkgs";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, parts, ... }:
@@ -30,19 +34,27 @@
       perSystem = { config, pkgs, system, ... }: {
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
+
           overlays = [
             inputs.nur.overlay
+            (import "${inputs.docker-nixpkgs}/overlay.nix")
             (self: super: {
               unstable = import inputs.unstable { inherit system; };
               my = import ./pkgs { pkgs = super; };
               ai = inputs.ai.packages.${system};
             })
           ];
-          config.allowUnfreePredicate = pkg:
+          config = {
+            allowUnfreePredicate = pkg:
             builtins.elem (inputs.nixpkgs.lib.getName pkg) [
               "nvidia-x11"
               "nvidia-settings"
             ];
+            # Why old version of nix is needed?
+            permittedInsecurePackages = [
+                "nix-2.16.2"
+              ];
+          };
         };
 
         formatter = pkgs.nixfmt;

@@ -261,7 +261,7 @@
   (global-corfu-mode t)
   (corfu-cycle t)
   (corfu-on-exact-match nil) ; Sometimes annoying
-  (corfu-preselect-first nil)
+  (corfu-preselect 'prompt)
   (corfu-auto-prefix 0)
   (corfu-auto-delay 0.)
   (corfu-auto t))
