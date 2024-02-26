@@ -161,6 +161,7 @@
   :custom
   (proced-auto-update-flag t)
   (proced-tree-flag t)
+  (proced-enable-color-flag t)
   (proced-filter 'all))
 
 (use-package daemons
@@ -334,7 +335,6 @@
   :hook (after-init . flymake-collection-hook-setup))
 
 (use-package eglot
-  :ensure t
   :hook (eglot-managed-mode
          . (lambda ()
              (add-hook 'flymake-diagnostic-functions 'eglot-flymake-backend)
@@ -354,13 +354,6 @@
   :bind (:map tempel-map
               ("<tab>" . tempel-next)
               ("TAB" . tempel-next)))
-
-(use-package tree-sitter
-  :ensure t
-  :custom
-  (global-tree-sitter-mode)
-  :config
-  (add-hook 'tree-sitter-after-on-hook 'tree-sitter-hl-mode))
 
 (use-package dired
   :hook (dired-mode . dired-hide-details-mode)
