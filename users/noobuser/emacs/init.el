@@ -486,6 +486,9 @@
   :ensure t
   :bind ("C-x g" . magit-status))
 
+(use-package multi-mode
+  :ensure t)
+
 ;; Programing languages
 
 (use-package elisp-mode
