@@ -44,10 +44,20 @@ in {
     enable = true;
     numlock.enable = true;
     windowManager.command =
-      "${config.programs.emacs.finalPackage}/bin/emacs -f exwm-enable";
+      "${config.programs.emacs.finalPackage}/bin/emacsclient -c -e '(exwm-init)'";
   };
 
-  xdg.enable = true;
+  home.file.".xinitrc".text =
+    config.home.file.${config.xsession.scriptPath}.text;
+
+  xdg = {
+    enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = lib.attrsets.genAttrs [ "text/*" "inode/directory" ]
+        (_: [ "emacsclient.desktop" ]);
+    };
+  };
 
   home = {
     pointerCursor = {
