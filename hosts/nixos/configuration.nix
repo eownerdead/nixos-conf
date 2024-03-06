@@ -9,7 +9,6 @@ in {
     ../common/hardened.nix
 
     ./nginx.nix
-    ./gitea.nix
     ./actions.nix
     ./libretranslate.nix
   ];
