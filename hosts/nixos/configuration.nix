@@ -129,5 +129,11 @@ in {
     waydroid.enable = true;
   };
 
-  system.stateVersion = "23.11";
+  system = {
+    stateVersion = "23.11";
+    autoUpgrade = {
+      enable = true;
+      flake = "git+https://codeberg.org/eownerdead/flakes?ref=dev/nixos";
+    };
+  };
 }
