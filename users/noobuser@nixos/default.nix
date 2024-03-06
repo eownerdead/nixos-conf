@@ -2,6 +2,7 @@
   imports = [
     ../noobuser/cli.nix
     ../noobuser/git.nix
+    ../noobuser/mercurial.nix
     ../noobuser/gpg.nix
     ../noobuser/pass.nix
     ../noobuser/firefox.nix
