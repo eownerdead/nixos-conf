@@ -8,6 +8,7 @@ with lib; {
     ./nvidia.nix
     ./sound.nix
     ./zfs.nix
+    ./tor.nix
   ];
 
   options.eownerdead.recommended = mkEnableOption (mdDoc ''

@@ -20,6 +20,8 @@ in {
     nvidia = true;
     sound = true;
     zfs = true;
+    tor = true;
+    dnsOverTor = true;
   };
 
   boot = {
@@ -41,7 +43,6 @@ in {
     hostId = "8556b001";
     useNetworkd = true;
     useDHCP = false;
-    nameservers = [ "9.9.9.9" "149.112.112.112" ];
     defaultGateway = {
       interface = "enp42s0";
       address = "192.168.1.1";
@@ -111,7 +112,7 @@ in {
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBY59B9RvaQW314iSWSIi9EWO+J6aNWImXoeZyLwQzSC openpgp:0x5CA54D63"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN5bTpOOFrIF3IqOZqUsJUTziQduAzXOpNfsFM4Yat8F a@DESKTOP-R9IE7K2"
     ];
-    extraGroups = [ "wheel" "wireshark" "adbusers" ];
+    extraGroups = [ "wheel" "wireshark" "adbusers" "tor" ];
   };
 
   environment = {
