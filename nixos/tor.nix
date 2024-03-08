@@ -30,15 +30,18 @@ in with lib; {
         };
         controlSocket.enable = true;
         settings = {
-          ControlPort = [{ addr = "127.0.0.1"; port = 9051; }];
+          ControlPort = mkForce [{
+            addr = "127.0.0.1";
+            port = 9051;
+          }];
           CookieAuthentication = true;
           CookieAuthFile = "/run/tor/control.authcookie";
           CookieAuthFileGroupReadable = true;
+          DNSPort = mkIf config.eownerdead.dnsOverTor [{
+            addr = "127.0.0.1";
+            port = 53;
+          }];
         };
-        settings.DNSPort = mkIf config.eownerdead.dnsOverTor [{
-          addr = "127.0.0.1";
-          port = 53;
-        }];
       };
 
       resolved = mkIf cfg.tor (mkDefault {
@@ -49,14 +52,15 @@ in with lib; {
 
     networking.nameservers = mkIf cfg.tor (mkDefault [ "127.0.0.1" ]);
 
-    systemd.services.tor.serviceConfig.RuntimeDirectoryMode = "0730";
+    systemd.services.tor.serviceConfig.RuntimeDirectoryMode = mkForce "0750";
 
     environment.sessionVariables = let torCfg = config.services.tor.settings;
     in {
       TOR_CONTROL_COOKIE_AUTH_FILE = torCfg.CookieAuthFile;
-      TOR_CONTROL_PORT = (builtins.head torCfg.ControlPort).port;
-      TOR_SOCKS_PORT = (builtins.head torCfg.SOCKSPort).port;
-      TOR_SKIP_LAUNCH = true;
+      TOR_CONTROL_PORT =
+        builtins.toString (builtins.head torCfg.ControlPort).port;
+      TOR_SOCKS_PORT = builtins.toString (builtins.head torCfg.SOCKSPort).port;
+      TOR_SKIP_LAUNCH = "1";
     };
   };
 }
