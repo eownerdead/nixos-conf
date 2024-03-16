@@ -279,14 +279,7 @@
   (mood-line-show-eol-style t)
   (mood-line-show-encoding-information t)
   :config
-  (defun mood-line-segment-buffer-name () nil) ; Show only in mode line
-  (setq-default header-line-format
-                '(" "
-                  (:eval (propertize (if buffer-file-name
-                                         (abbreviate-file-name buffer-file-name) "%b")
-                                     'face 'mood-line-buffer-name))
-                  " "
-                  which-func-current)))
+  (defun mood-line-segment-buffer-name () nil)) ; Show only in mode line
 
 (use-package which-key
   :ensure t
@@ -319,13 +312,10 @@
              (if-let ((proj (project-current nil)))
                  (setq-local default-directory (project-root proj))))))
 
-(use-package which-func
-  :custom
-  (which-func-mode t)
-  (which-func-unknown "")
+(use-package breadcrumb
+  :ensure t
   :config
-  (setq mode-line-misc-info
-        (assq-delete-all 'which-function-mode mode-line-misc-info)))
+  (breadcrumb-mode 1))
 
 (use-package gud
   :hook gud-tooltip-mode)
