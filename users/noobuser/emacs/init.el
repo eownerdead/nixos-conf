@@ -507,6 +507,15 @@
   (python-mode flymake-collection-mypy
                flymake-collection-ruff))
 
+(use-package lua-mode
+  :ensure t)
+
+(use-package sml-mode
+  :ensure t)
+
+(use-package scala-mode
+  :ensure t)
+
 (use-package rust-mode
   :ensure t
   :hook (rust-mode . eglot-ensure))
