@@ -561,6 +561,8 @@
   (add-to-list 'completion-at-point-functions
                (cape-company-to-capf #'company-coq-master-backend) t))
 
+(use-package agda2-mode)
+
 (provide 'init)
 
 ;;; init.el ends here

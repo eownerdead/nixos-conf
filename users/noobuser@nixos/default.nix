@@ -39,6 +39,7 @@
       my.morisawa-biz-ud-gothic
       my.morisawa-biz-ud-mincho
       coq
+      agda
       (isabelle.withComponents (p: [ p.isabelle-linter ]))
       anki
       tigervnc

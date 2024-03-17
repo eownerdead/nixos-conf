@@ -23,6 +23,7 @@ in {
         treesit-grammars.with-all-grammars
         pkgs.my.emacsPackages.eglot-tempel
         epkgs.llvm-mode
+        epkgs.agda2-mode
         epkgs.exwm
       ]);
   };
