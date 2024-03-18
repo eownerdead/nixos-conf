@@ -44,6 +44,7 @@
       anki
       tigervnc
       nyx
+      wayfire
     ];
   };
 
