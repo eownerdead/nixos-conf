@@ -211,6 +211,9 @@
   :custom
   (global-superword-mode t))
 
+(use-package newcomment
+  :bind (([remap comment-dwim] . comment-line)))
+
 (use-package whitespace
   :custom
   (whitespace-style '(face trailing tabs spaces space-mark tab-mark))
