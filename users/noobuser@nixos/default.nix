@@ -23,6 +23,7 @@
 
     packages = with pkgs; [
       dconf
+      pijul
       android-tools
       wireshark
       gimp
