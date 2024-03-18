@@ -41,6 +41,7 @@
       coq
       agda
       (isabelle.withComponents (p: [ p.isabelle-linter ]))
+      hol
       anki
       tigervnc
       nyx

@@ -7,4 +7,8 @@ with pkgs; {
   eglot-tempel = callPackage ./eglot-tempel {
     inherit (pkgs.emacs.pkgs) trivialBuild eglot tempel;
   };
+
+  hol-mode = callPackage ./hol-mode {
+    inherit (pkgs.emacs.pkgs) trivialBuild;
+  };
 }
