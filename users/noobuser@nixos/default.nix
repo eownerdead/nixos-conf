@@ -6,7 +6,6 @@
     ../noobuser/gpg.nix
     ../noobuser/pass.nix
     ../noobuser/firefox.nix
-    ../noobuser/fish.nix
     ../noobuser/emacs
 
     ../noobuser/dev/nix.nix
