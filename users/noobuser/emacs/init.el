@@ -20,6 +20,7 @@
   (scroll-margin 15)
   (visible-bell t)
   (cursor-type 'bar)
+  (bidi-inhibit-bpa t) ; faster with long lines
   (use-short-answers t) ; y or n instead of yes or no
   (indent-tabs-mode t)
   (standard-indent 8)
@@ -215,6 +216,10 @@
   :custom
   (whitespace-style '(face trailing tabs spaces space-mark tab-mark))
   (global-whitespace-mode t))
+
+(use-package so-long
+  :custom
+  (global-so-long-mode t))
 
 (use-package diff-hl
   :ensure t
