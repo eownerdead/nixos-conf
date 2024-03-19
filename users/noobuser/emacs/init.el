@@ -549,6 +549,9 @@
   :custom
   (markdown-header-scaling t))
 
+(use-package auctex
+  :ensure t)
+
 (use-package proof-general
   :ensure t
   :custom

@@ -44,6 +44,7 @@
       hol
       anki
       tigervnc
+      texlab
       nyx
       wayfire
     ];
