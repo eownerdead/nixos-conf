@@ -348,13 +348,10 @@
                                     eldoc-documentation-strategy))
   (add-to-list 'eglot-server-programs '(nix-mode . ("nixd"))))
 
-(use-package eglot-tempel)
-
-(use-package tempel
+(use-package yasnippet
   :ensure t
-  :bind (:map tempel-map
-              ("<tab>" . tempel-next)
-              ("TAB" . tempel-next)))
+  :custom
+  (yas-global-mode t))
 
 (use-package dired
   :hook (dired-mode . dired-hide-details-mode)
