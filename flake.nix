@@ -43,6 +43,7 @@
               "nvidia-x11"
               "nvidia-settings"
             ];
+          config.allowInsecurePredicate = _: true;
         };
 
         formatter = pkgs.nixfmt;
